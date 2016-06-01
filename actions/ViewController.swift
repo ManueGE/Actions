@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         blueView.addAction(parameterAction)
         redView.addAction(.swipe(.Left), action: emptyAction)
         label.addAction(.tap(5), action: parameterAction)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, action: emptyAction)
     }
     
     func emptyAction() {

@@ -15,6 +15,7 @@
 		325202511CFEE03800CB20CF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202501CFEE03800CB20CF /* Action.swift */; };
 		325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202521CFEE05700CB20CF /* UIView+Actions.swift */; };
 		325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202541CFEE13400CB20CF /* UIControl+Actions.swift */; };
+		325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		325202501CFEE03800CB20CF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		325202521CFEE05700CB20CF /* UIView+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Actions.swift"; sourceTree = "<group>"; };
 		325202541CFEE13400CB20CF /* UIControl+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Actions.swift"; sourceTree = "<group>"; };
+		325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Actions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				325202501CFEE03800CB20CF /* Action.swift */,
 				325202521CFEE05700CB20CF /* UIView+Actions.swift */,
 				325202541CFEE13400CB20CF /* UIControl+Actions.swift */,
+				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
 			);
 			path = targets;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
 				325202511CFEE03800CB20CF /* Action.swift in Sources */,
 				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
+				325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
