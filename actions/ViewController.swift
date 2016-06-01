@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var redView: UIView!
     @IBOutlet weak var blueView: UIView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,18 @@ class ViewController: UIViewController {
             print(recognizer)
         }
         blueView.addGestureRecognizer(recognizer)
+        
+        textField.addAction(.EditingChanged) { (textField: UITextField) in
+            print("Text did change: \(textField.text)")
+        }
+        
+        segmentedControl.addAction(.ValueChanged) { (segmented: UISegmentedControl) in
+            print("Segmented did change \(segmented.selectedSegmentIndex)")
+        }
+        
+        button.addAction(.TouchUpInside) {
+            print("button tapped")
+        }
     }
     
     func emptyAction() {
@@ -41,6 +56,5 @@ class ViewController: UIViewController {
     func barButtonAction(item: UIBarButtonItem) {
         print("item: \(item)")
     }
-
 }
 
