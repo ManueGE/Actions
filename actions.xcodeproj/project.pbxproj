@@ -14,6 +14,7 @@
 		325202481CFEDFC400CB20CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */; };
 		325202511CFEE03800CB20CF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202501CFEE03800CB20CF /* Action.swift */; };
 		325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202521CFEE05700CB20CF /* UIView+Actions.swift */; };
+		325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202541CFEE13400CB20CF /* UIControl+Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		325202491CFEDFC400CB20CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		325202501CFEE03800CB20CF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		325202521CFEE05700CB20CF /* UIView+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Actions.swift"; sourceTree = "<group>"; };
+		325202541CFEE13400CB20CF /* UIControl+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Actions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				325202501CFEE03800CB20CF /* Action.swift */,
 				325202521CFEE05700CB20CF /* UIView+Actions.swift */,
+				325202541CFEE13400CB20CF /* UIControl+Actions.swift */,
 			);
 			path = targets;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
 				325202511CFEE03800CB20CF /* Action.swift in Sources */,
+				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
