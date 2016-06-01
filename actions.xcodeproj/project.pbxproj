@@ -67,7 +67,7 @@
 				3252023D1CFEDFC400CB20CF /* AppDelegate.swift */,
 				3252023F1CFEDFC400CB20CF /* ViewController.swift */,
 				325202411CFEDFC400CB20CF /* Main.storyboard */,
-				3252024F1CFEE03200CB20CF /* targets */,
+				3252024F1CFEE03200CB20CF /* actions */,
 				325202441CFEDFC400CB20CF /* Assets.xcassets */,
 				325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */,
 				325202491CFEDFC400CB20CF /* Info.plist */,
@@ -75,7 +75,7 @@
 			path = actions;
 			sourceTree = "<group>";
 		};
-		3252024F1CFEE03200CB20CF /* targets */ = {
+		3252024F1CFEE03200CB20CF /* actions */ = {
 			isa = PBXGroup;
 			children = (
 				325202501CFEE03800CB20CF /* Action.swift */,
@@ -84,7 +84,7 @@
 				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
 				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
 			);
-			path = targets;
+			path = actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +314,7 @@
 				3252024E1CFEDFC400CB20CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
