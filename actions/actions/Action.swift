@@ -10,7 +10,7 @@ import UIKit
 import ObjectiveC
 
 // MARK: Action
-@objc protocol Action {
+@objc public protocol Action {
     @objc func perform()
 }
 
@@ -46,17 +46,17 @@ class VoidAction: Action {
     }
 }
 
-// MARK: Targetable
+// MARK: Actionable
 /*!
  Targetable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
  */
-protocol Actionable: class {
-    var actions: [Action]? { get set }
+public protocol Actionable: class {
+    var actions: [Action]? { get }
 }
 
 private var actionsKey: UInt8 = 0
-extension Actionable {
-    var actions: [Action]? {
+public extension Actionable {
+    public internal(set) var actions: [Action]? {
         get {
             var targets = objc_getAssociatedObject(self, &actionsKey) as? [Action]
             
@@ -72,7 +72,7 @@ extension Actionable {
         }
     }
     
-    func retainAction(action: Action) {
+    public func retainAction(action: Action) {
         actions!.append(action)
     }
 }

@@ -19,10 +19,15 @@ class ViewController: UIViewController {
         redView.addAction(emptyAction)
         blueView.addAction(parameterAction)
         redView.addAction(.swipe(.Left), action: emptyAction)
-        label.addAction(.tap(5), action: parameterAction)
+        redView.addAction(.multiTap(taps: 5, fingers: 2), action: parameterAction)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, action: emptyAction)
+        
+        let recognizer = UIPinchGestureRecognizer { (recognizer) in
+            print(recognizer)
+        }
+        blueView.addGestureRecognizer(recognizer)
     }
     
     func emptyAction() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Gesture {
+public enum Gesture {
     case tap(Int)
     case swipe(UISwipeGestureRecognizerDirection)
     
@@ -45,23 +45,22 @@ enum Gesture {
 
 extension UIView: Actionable {
     
-    func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
+    public func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
         let action = ActionWithParameter(parameter: (self as! T), action: action)
         return addAction(gesture, action: action)
     }
     
-    func addAction(gesture: Gesture, action: Void -> Void) -> UIGestureRecognizer {
+    public func addAction(gesture: Gesture, action: Void -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return addAction(gesture, action: action)
     }
     
-    func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
-        let action = ActionWithParameter(parameter: (self as!
-            T), action: action)
+    public func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
+        let action = ActionWithParameter(parameter: (self as! T), action: action)
         return addAction(.tap(1), action: action)
     }
     
-    func addAction(action: Void -> Void) -> UIGestureRecognizer {
+    public func addAction(action: Void -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return addAction(.tap(1), action: action)
     }
