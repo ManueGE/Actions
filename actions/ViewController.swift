@@ -10,16 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var redView: UIView!
+    @IBOutlet weak var blueView: UIView!
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        redView.addAction(emptyAction)
+        blueView.addAction(parameterAction)
+        redView.addAction(.swipe(.Left), action: emptyAction)
+        label.addAction(.tap(5), action: parameterAction)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, action: emptyAction)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func emptyAction() {
+        print("Empty")
     }
-
+    
+    func parameterAction(view: UIView) {
+        print("pram: \(view)")
+    }
+    
+    func barButtonAction(item: UIBarButtonItem) {
+        print("item: \(item)")
+    }
 
 }
 
