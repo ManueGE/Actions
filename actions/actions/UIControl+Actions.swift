@@ -31,5 +31,6 @@ extension UIControl {
     
     public func removeAction(action: Action, forControlEvents events: UIControlEvents) {
         removeTarget(action, action: action.selector, forControlEvents: events)
+        releaseAction(action)
     }
 }

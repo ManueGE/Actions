@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var action: Action?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         redView.addAction(emptyAction)
@@ -36,9 +38,7 @@ class ViewController: UIViewController {
             print("Text did change: \(textField.text)")
         }
         
-        segmentedControl.addAction(.ValueChanged) { (segmented: UISegmentedControl) in
-            print("Segmented did change \(segmented.selectedSegmentIndex)")
-        }
+        action = segmentedControl.addAction(.ValueChanged, action: didPressSegment)
         
         button.addAction(.TouchUpInside) {
             print("button tapped")
@@ -55,6 +55,11 @@ class ViewController: UIViewController {
     
     func barButtonAction(item: UIBarButtonItem) {
         print("item: \(item)")
+    }
+    
+    func didPressSegment(segmented: UISegmentedControl) {
+        print("Segmented did change \(segmented.selectedSegmentIndex)")
+        segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
     }
 }
 

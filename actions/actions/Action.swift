@@ -9,8 +9,11 @@
 import UIKit
 import ObjectiveC
 
-// MARK: Action
+/**
+ 
+ */
 @objc public protocol Action {
+    var key: String { get }
     @objc func perform()
 }
 
@@ -20,6 +23,7 @@ extension Action {
 
 class ActionWithParameter<T: NSObject>: Action {
     
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
     let action: (T -> Void)!
     internal(set) var parameter: T!
     
@@ -35,6 +39,7 @@ class ActionWithParameter<T: NSObject>: Action {
 
 class VoidAction: Action {
     
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
     var action: (Void -> Void)!
     
     init(action: Void -> Void) {
@@ -51,17 +56,17 @@ class VoidAction: Action {
  Targetable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
  */
 public protocol Actionable: class {
-    var actions: [Action]? { get }
+    var actions: [String: Action]? { get }
 }
 
 private var actionsKey: UInt8 = 0
 public extension Actionable {
-    public internal(set) var actions: [Action]? {
+    public internal(set) var actions: [String: Action]? {
         get {
-            var targets = objc_getAssociatedObject(self, &actionsKey) as? [Action]
+            var targets = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
             
             if targets == nil {
-                targets = []
+                targets = [:]
                 objc_setAssociatedObject(self, &actionsKey, targets, .OBJC_ASSOCIATION_RETAIN)
             }
             
@@ -73,6 +78,10 @@ public extension Actionable {
     }
     
     public func retainAction(action: Action) {
-        actions!.append(action)
+        actions![action.key] = action
+    }
+    
+    public func releaseAction(action: Action) {
+        actions![action.key] = nil
     }
 }
