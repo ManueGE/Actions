@@ -10,13 +10,17 @@ import UIKit
 import ObjectiveC
 
 /**
- 
+ Protocol used to convert Swift closures into ObjC selectors
  */
 @objc public protocol Action {
+    // The key used to store the `Action`. Must be unique.
     var key: String { get }
+    
+    // The selector provided by the action
     var selector: Selector { get }
 }
 
+// Action that takes zero parameters
 class VoidAction: Action {
     
     @objc let key = NSProcessInfo.processInfo().globallyUniqueString
@@ -33,7 +37,8 @@ class VoidAction: Action {
     }
 }
 
-class ActionWithParameter<T: NSObject>: Action {
+// Action which takes one single parameter
+class ParametizedAction<T: NSObject>: Action {
     
     @objc let key = NSProcessInfo.processInfo().globallyUniqueString
     @objc let selector: Selector = #selector(perform)
