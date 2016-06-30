@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         button.addAction(.TouchUpInside) {
             print("button tapped")
         }
+        
+        button.addAction(.TouchUpInside, action: eventAction)
+        
+        label.addAction(.swipe(.Left), action: parameterAction)
     }
     
     func emptyAction() {
@@ -60,6 +64,10 @@ class ViewController: UIViewController {
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
         segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
+    }
+    
+    func eventAction(sender: UIButton, event: UIEvent) {
+        print("Sender: \(sender), Event: \(event)")
     }
 }
 

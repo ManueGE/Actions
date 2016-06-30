@@ -14,16 +14,30 @@ import ObjectiveC
  */
 @objc public protocol Action {
     var key: String { get }
-    @objc func perform()
+    var selector: Selector { get }
 }
 
-extension Action {
-    var selector: Selector { return #selector(perform) }
+class VoidAction: Action {
+    
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let selector: Selector = #selector(perform)
+    
+    var action: (Void -> Void)!
+    
+    init(action: Void -> Void) {
+        self.action = action
+    }
+    
+    @objc func perform() {
+        action()
+    }
 }
 
 class ActionWithParameter<T: NSObject>: Action {
     
     @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let selector: Selector = #selector(perform)
+    
     let action: (T -> Void)!
     internal(set) var parameter: T!
     
@@ -37,31 +51,17 @@ class ActionWithParameter<T: NSObject>: Action {
     }
 }
 
-class VoidAction: Action {
-    
-    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
-    var action: (Void -> Void)!
-    
-    init(action: Void -> Void) {
-        self.action = action
-    }
-    
-    @objc func perform() {
-        action()
-    }
-}
-
 // MARK: Actionable
 /*!
- Targetable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
+ Actionable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
  */
-public protocol Actionable: class {
+protocol Actionable: class {
     var actions: [String: Action]? { get }
 }
 
 private var actionsKey: UInt8 = 0
-public extension Actionable {
-    public internal(set) var actions: [String: Action]? {
+extension Actionable {
+    internal(set) var actions: [String: Action]? {
         get {
             var targets = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
             
@@ -77,11 +77,11 @@ public extension Actionable {
         }
     }
     
-    public func retainAction(action: Action) {
+    func retainAction(action: Action) {
         actions![action.key] = action
     }
     
-    public func releaseAction(action: Action) {
+    func releaseAction(action: Action) {
         actions![action.key] = nil
     }
 }

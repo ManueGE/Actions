@@ -98,13 +98,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-OR-uQ1" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Bpr-ab-XxU"/>
-                <pinchGestureRecognizer id="zcP-WB-mgG"/>
-                <rotationGestureRecognizer id="1gl-0V-hwc"/>
-                <swipeGestureRecognizer direction="right" id="jcf-lz-knO"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="FVB-CM-h8w"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="6nQ-7W-KE8"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="QdS-jf-2Rg"/>
             </objects>
             <point key="canvasLocation" x="388" y="380"/>
         </scene>
