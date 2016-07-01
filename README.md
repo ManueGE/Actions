@@ -70,7 +70,7 @@ view.addAction {
 }
 
 // You can also make the closure have one argument (the view):
-view.addAction { view in
+view.addAction { (view: UIView) in
     print("view \(view) tapped")
 }
 
@@ -80,7 +80,7 @@ view.addAction(.tap(3)) {
 }
 
 // Add a swipe gesture with the view as closure argument
-view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { view in
+view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
     print("View \(view) swipped left with 2 fingers")
 }
 ```` 
@@ -136,7 +136,7 @@ let recognizer = UIRotationGestureRecognizer {
 }
 
 // with argument
-let recognizer = UIRotationGestureRecognizer { recognizer in
+let recognizer = UIRotationGestureRecognizer { (recognizer: UIRotationGestureRecognizer) in
     print("Gesture \(recognizer) triggered")
 }
 ````
@@ -163,7 +163,7 @@ let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
 All this methods has come additional, optional arguments. They also can be used with closures that takes a argument: 
 
 ````
-let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { item in
+let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBarButtonItem) in
     print("image item \(item) pressed")
 }
 ````
