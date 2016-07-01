@@ -8,21 +8,21 @@
 
 import UIKit
 
-/*
+/**
  The gestures that can be used to trigger actions in `UIView`
  */
 public enum Gesture {
     
-    // A tap gesture with a single finger and the given number of touches
+    /// A tap gesture with a single finger and the given number of touches
     case tap(Int)
     
-    // A swipe gesture with a single finger and the given direction
+    /// A swipe gesture with a single finger and the given direction
     case swipe(UISwipeGestureRecognizerDirection)
     
-    // A tap gesture with the given number of touches and fingers
+    /// A tap gesture with the given number of touches and fingers
     case multiTap(taps: Int, fingers: Int)
     
-    // A swipe gesture with the given direction and number of fingers
+    /// A swipe gesture with the given direction and number of fingers
     case multiSwipe(direction: UISwipeGestureRecognizerDirection, fingers: Int)
     
     private func recognizer(action: Action) -> UIGestureRecognizer {

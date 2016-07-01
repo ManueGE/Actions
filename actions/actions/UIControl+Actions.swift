@@ -14,13 +14,13 @@ private class EventAction<T: UIControl>: Action {
     @objc let key = NSProcessInfo.processInfo().globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    let action: (T, UIEvent) -> Void
+    let action: (T, UIEvent?) -> Void
     
-    @objc func perform(parameter: AnyObject, event: UIEvent) {
+    @objc func perform(parameter: AnyObject, event: UIEvent?) {
         action(parameter as! T, event)
     }
     
-    init(action: (T, UIEvent) -> Void) {
+    init(action: (T, UIEvent?) -> Void) {
         self.action = action
     }
 }
@@ -37,7 +37,7 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added action
      */
-    public func addAction<T: UIControl>(event: UIControlEvents, action: (T, UIEvent) -> Void) -> Action {
+    public func addAction<T: UIControl>(event: UIControlEvents, action: (T, UIEvent?) -> Void) -> Action {
         let action = EventAction(action: action)
         addAction(event, action: action)
         return action
@@ -76,7 +76,7 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added actions
      */
-    public func addAction<T: UIControl>(events: [UIControlEvents], action: (T, UIEvent) -> Void) -> [Action] {
+    public func addAction<T: UIControl>(events: [UIControlEvents], action: (T, UIEvent?) -> Void) -> [Action] {
         return events.map { addAction($0, action: action) }
     }
     
