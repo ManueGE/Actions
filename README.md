@@ -64,22 +64,22 @@ To add one of this gestures to a `UIView` you can do:
 ````
 let view = UIView()
 
-// Not any gesture parameter means .tap(1):
+// Not any gesture argument means .tap(1):
 view.addAction {
      print("view tapped")
 }
 
-// You can also make the closure have one parameter (the view):
+// You can also make the closure have one argument (the view):
 view.addAction { view in
     print("view \(view) tapped")
 }
 
-// Add another gesture
+// Add 2 tap gesture
 view.addAction(.tap(3)) {
     print("View tapped 3 times")
 }
 
-// Add another gesture with view as closure parameter
+// Add a swipe gesture with the view as closure argument
 view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { view in
     print("View \(view) swipped left with 2 fingers")
 }
@@ -90,7 +90,38 @@ All the add action methods returns the UIGestureRecognizer added to the view, in
 
 ### UIControl
 
-Assign actions to your `UIControl` events. You can add
+Assign actions to your `UIControl` events. 
+
+You can add three types of closures:
+
+- Without any argument
+- With one argument, it will be the control itself.
+- With two arguments, the first one will be the control itself, the second one will be the `UIEvent`.
+
+You can add actions:
+
+- To a single `UIControlEvent`, using the method `addAction(_:UIControlEvent, action:Void -> Void)`
+- To multple control events at the same time: `addAction(_:[UIControlEvent], action:Void -> Void)`
+
+Here there are some examples:
+
+````
+// Closure without arguments and single event
+button.addAction(.TouchUpInside) {
+    print("button tapped")
+}
+
+// Closure with one argument and multiple events
+textField.addAction([.EditingChanged, .EditingDidEnd]) { (textField: UITextField) in
+    print("Text did change: \(textField.text)")
+}
+
+// Closure with two arguments
+button.addAction(.TouchUpInside) { (sender, event) in
+    print("Sender: \(sender), Event: \(event)")
+}
+
+````
 
 
 
@@ -99,12 +130,12 @@ Assign actions to your `UIControl` events. You can add
 Create `UIGestureRecognizer` with a closure instead of a pair of target/action:
 
 ````
-// without parameter
+// without argument
 let recognizer = UIRotationGestureRecognizer {
     print("Gesture triggered")
 }
 
-// with parameter
+// with argument
 let recognizer = UIRotationGestureRecognizer { recognizer in
     print("Gesture \(recognizer) triggered")
 }
@@ -129,7 +160,7 @@ let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
 }
 ````
 
-All this methods has come additional, optional parameters. They also can be used with closures that takes a parameter: 
+All this methods has come additional, optional arguments. They also can be used with closures that takes a argument: 
 
 ````
 let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { item in
@@ -148,4 +179,4 @@ let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { item in
 
 ## License
 
-MGEDateFormatter is available under the [MIT license](LICENSE.md).
+Actions is available under the [MIT license](LICENSE.md).
