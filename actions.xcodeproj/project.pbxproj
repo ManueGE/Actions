@@ -12,6 +12,11 @@
 		325202431CFEDFC400CB20CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202411CFEDFC400CB20CF /* Main.storyboard */; };
 		325202451CFEDFC400CB20CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 325202441CFEDFC400CB20CF /* Assets.xcassets */; };
 		325202481CFEDFC400CB20CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */; };
+		325202511CFEE03800CB20CF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202501CFEE03800CB20CF /* Action.swift */; };
+		325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202521CFEE05700CB20CF /* UIView+Actions.swift */; };
+		325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202541CFEE13400CB20CF /* UIControl+Actions.swift */; };
+		325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */; };
+		325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		325202441CFEDFC400CB20CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		325202471CFEDFC400CB20CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		325202491CFEDFC400CB20CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		325202501CFEE03800CB20CF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		325202521CFEE05700CB20CF /* UIView+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Actions.swift"; sourceTree = "<group>"; };
+		325202541CFEE13400CB20CF /* UIControl+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Actions.swift"; sourceTree = "<group>"; };
+		325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Actions.swift"; sourceTree = "<group>"; };
+		325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Actions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +67,22 @@
 				3252023D1CFEDFC400CB20CF /* AppDelegate.swift */,
 				3252023F1CFEDFC400CB20CF /* ViewController.swift */,
 				325202411CFEDFC400CB20CF /* Main.storyboard */,
+				3252024F1CFEE03200CB20CF /* actions */,
 				325202441CFEDFC400CB20CF /* Assets.xcassets */,
 				325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */,
 				325202491CFEDFC400CB20CF /* Info.plist */,
+			);
+			path = actions;
+			sourceTree = "<group>";
+		};
+		3252024F1CFEE03200CB20CF /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				325202501CFEE03800CB20CF /* Action.swift */,
+				325202521CFEE05700CB20CF /* UIView+Actions.swift */,
+				325202541CFEE13400CB20CF /* UIControl+Actions.swift */,
+				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
+				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -135,7 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
+				325202511CFEE03800CB20CF /* Action.swift in Sources */,
+				325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */,
+				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
+				325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +314,7 @@
 				3252024E1CFEDFC400CB20CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
