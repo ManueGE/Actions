@@ -4,7 +4,7 @@
 
 With Actions, you will easely add actions this way:
 
-````
+````swift
 // UIView
 let imageView = UIImageView()
 imageView.addAction(.swipe(.Left)) {
@@ -61,7 +61,7 @@ You can make your `UIViews` to respond to simple touches in an easy way. The all
 
 To add one of this gestures to a `UIView` you can do: 
 
-````
+````swift
 let view = UIView()
 
 // Not any gesture argument means .tap(1):
@@ -105,7 +105,7 @@ You can add actions:
 
 Here there are some examples:
 
-````
+````swift
 // Closure without arguments and single event
 button.addAction(.TouchUpInside) {
     print("button tapped")
@@ -129,7 +129,7 @@ button.addAction(.TouchUpInside) { (sender, event) in
 
 Create `UIGestureRecognizer` with a closure instead of a pair of target/action:
 
-````
+````swift
 // without argument
 let recognizer = UIRotationGestureRecognizer {
     print("Gesture triggered")
@@ -146,7 +146,7 @@ let recognizer = UIRotationGestureRecognizer { (recognizer: UIRotationGestureRec
 
 Create `UIBarButtonItem` with a closure instead of a pair of target/action. You can create bar button items from its title, image or using a system type:
 
-````
+````swift
 let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) {
     print("image item pressed")
 }
@@ -162,7 +162,7 @@ let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
 
 All this methods has come additional, optional arguments. They also can be used with closures that takes a argument: 
 
-````
+````swift
 let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBarButtonItem) in
     print("image item \(item) pressed")
 }
