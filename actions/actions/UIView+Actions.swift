@@ -8,11 +8,21 @@
 
 import UIKit
 
-enum Gesture {
+/*
+ The gestures that can be used to trigger actions in `UIView`
+ */
+public enum Gesture {
+    
+    // A tap gesture with a single finger and the given number of touches
     case tap(Int)
+    
+    // A swipe gesture with a single finger and the given direction
     case swipe(UISwipeGestureRecognizerDirection)
     
+    // A tap gesture with the given number of touches and fingers
     case multiTap(taps: Int, fingers: Int)
+    
+    // A swipe gesture with the given direction and number of fingers
     case multiSwipe(direction: UISwipeGestureRecognizerDirection, fingers: Int)
     
     private func recognizer(action: Action) -> UIGestureRecognizer {
@@ -43,25 +53,49 @@ enum Gesture {
     }
 }
 
+/// Extension that provides methods to add actions to views
 extension UIView: Actionable {
     
-    func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
-        let action = ActionWithParameter(parameter: (self as! T), action: action)
+    /**
+     Adds the given action as response to the gesture.
+     - parameter gesture: The gesture that the view must receive to trigger the closure
+     - parameter action: The closure that will be called when the gesture is detected
+     - returns: The gesture recognizer that has been added
+     */
+    public func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
+        let action = ParametizedAction(parameter: (self as! T), action: action)
         return addAction(gesture, action: action)
     }
     
-    func addAction(gesture: Gesture, action: Void -> Void) -> UIGestureRecognizer {
+    /**
+     Adds the given action as response to the gesture.
+     - parameter gesture: The gesture that the view must receive to trigger the closure
+     - parameter action: The closure that will be called when the gesture is detected
+     - returns: The gesture recognizer that has been added
+     */
+    public func addAction(gesture: Gesture, action: Void -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return addAction(gesture, action: action)
     }
     
-    func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
-        let action = ActionWithParameter(parameter: (self as!
-            T), action: action)
+    /**
+     Adds the given action as response to a single tap gesture.
+     - parameter gesture: The gesture that the view must receive to trigger the closure
+     - parameter action: The closure that will be called when the gesture is detected
+     - returns: The gesture recognizer that has been added
+     */
+    public func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
+        let action = ParametizedAction(parameter: (self as! T), action: action)
         return addAction(.tap(1), action: action)
     }
     
-    func addAction(action: Void -> Void) -> UIGestureRecognizer {
+    /**
+     Adds the given action as response to a single tap gesture.
+     - parameter gesture: The gesture that the view must receive to trigger the closure
+     - parameter action: The closure that will be called when the gesture is detected
+     - returns: The gesture recognizer that has been added
+     */
+    public func addAction(action: Void -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return addAction(.tap(1), action: action)
     }

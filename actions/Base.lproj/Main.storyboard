@@ -47,38 +47,57 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-bI-j4O">
                                 <rect key="frame" x="8" y="208" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht1-31-CW5">
+                                <rect key="frame" x="8" y="237" width="584" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-OS-EHF">
+                                <rect key="frame" x="277" y="275" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wYu-v8-Hzs">
+                                <rect key="frame" x="240" y="321" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ht1-31-CW5" firstAttribute="top" secondItem="fvV-bI-j4O" secondAttribute="bottom" constant="8" id="3vQ-rU-6uX"/>
+                            <constraint firstItem="Ht1-31-CW5" firstAttribute="centerX" secondItem="tHG-0M-S4e" secondAttribute="centerX" id="52u-Ig-8gV"/>
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="top" secondItem="n4O-rL-PTy" secondAttribute="bottom" constant="8" id="560-2R-8Ty"/>
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="height" secondItem="LFM-zD-BFk" secondAttribute="height" id="5Yb-Kq-r9u"/>
                             <constraint firstItem="fvV-bI-j4O" firstAttribute="top" secondItem="LFM-zD-BFk" secondAttribute="bottom" constant="8" id="5ec-bg-HQf"/>
+                            <constraint firstItem="iaC-OS-EHF" firstAttribute="centerX" secondItem="Ht1-31-CW5" secondAttribute="centerX" id="6sJ-o7-fdG"/>
                             <constraint firstAttribute="trailing" secondItem="qeC-ad-zNf" secondAttribute="trailing" constant="8" id="JVd-22-W1F"/>
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="width" secondItem="LFM-zD-BFk" secondAttribute="width" id="Kd1-6Y-1cJ"/>
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="top" secondItem="LFM-zD-BFk" secondAttribute="top" id="NxJ-CC-kMN"/>
                             <constraint firstItem="LFM-zD-BFk" firstAttribute="leading" secondItem="tHG-0M-S4e" secondAttribute="leading" constant="8" id="PNX-5H-YTO"/>
+                            <constraint firstItem="iaC-OS-EHF" firstAttribute="top" secondItem="Ht1-31-CW5" secondAttribute="bottom" constant="8" id="SMY-YA-5mf"/>
                             <constraint firstItem="fvV-bI-j4O" firstAttribute="leading" secondItem="LFM-zD-BFk" secondAttribute="leading" id="k4p-bg-3qP"/>
+                            <constraint firstItem="wYu-v8-Hzs" firstAttribute="top" secondItem="iaC-OS-EHF" secondAttribute="bottom" constant="16" id="nYs-Af-nTf"/>
+                            <constraint firstItem="Ht1-31-CW5" firstAttribute="leading" secondItem="fvV-bI-j4O" secondAttribute="leading" id="oT7-fd-miE"/>
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="leading" secondItem="LFM-zD-BFk" secondAttribute="trailing" constant="8" id="qzg-sr-lr8"/>
+                            <constraint firstItem="wYu-v8-Hzs" firstAttribute="centerX" secondItem="iaC-OS-EHF" secondAttribute="centerX" id="xNb-lt-ZOX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hov-M2-0Zr"/>
                     <connections>
                         <outlet property="blueView" destination="qeC-ad-zNf" id="J6u-aO-6hC"/>
+                        <outlet property="button" destination="iaC-OS-EHF" id="0SC-U9-LsQ"/>
                         <outlet property="label" destination="fvV-bI-j4O" id="DTf-Ic-RyC"/>
                         <outlet property="redView" destination="LFM-zD-BFk" id="aAN-Lt-GTv"/>
+                        <outlet property="segmentedControl" destination="wYu-v8-Hzs" id="YJY-68-uPG"/>
+                        <outlet property="textField" destination="Ht1-31-CW5" id="MB6-lu-nSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-OR-uQ1" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Bpr-ab-XxU"/>
-                <pinchGestureRecognizer id="zcP-WB-mgG"/>
-                <rotationGestureRecognizer id="1gl-0V-hwc"/>
-                <swipeGestureRecognizer direction="right" id="jcf-lz-knO"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="FVB-CM-h8w"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="6nQ-7W-KE8"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="QdS-jf-2Rg"/>
             </objects>
             <point key="canvasLocation" x="388" y="380"/>
         </scene>

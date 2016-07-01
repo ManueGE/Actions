@@ -13,16 +13,40 @@ class ViewController: UIViewController {
     @IBOutlet weak var redView: UIView!
     @IBOutlet weak var blueView: UIView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    var action: Action?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         redView.addAction(emptyAction)
         blueView.addAction(parameterAction)
         redView.addAction(.swipe(.Left), action: emptyAction)
-        label.addAction(.tap(5), action: parameterAction)
+        redView.addAction(.multiTap(taps: 5, fingers: 2), action: parameterAction)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, action: emptyAction)
+        
+        let recognizer = UIPinchGestureRecognizer { (recognizer) in
+            print(recognizer)
+        }
+        blueView.addGestureRecognizer(recognizer)
+        
+        textField.addAction(.EditingChanged) { (textField: UITextField) in
+            print("Text did change: \(textField.text)")
+        }
+        
+        action = segmentedControl.addAction(.ValueChanged, action: didPressSegment)
+        
+        button.addAction(.TouchUpInside) {
+            print("button tapped")
+        }
+        
+        button.addAction(.TouchUpInside, action: eventAction)
+        
+        label.addAction(.swipe(.Left), action: parameterAction)
     }
     
     func emptyAction() {
@@ -36,6 +60,14 @@ class ViewController: UIViewController {
     func barButtonAction(item: UIBarButtonItem) {
         print("item: \(item)")
     }
-
+    
+    func didPressSegment(segmented: UISegmentedControl) {
+        print("Segmented did change \(segmented.selectedSegmentIndex)")
+        segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
+    }
+    
+    func eventAction(sender: UIButton, event: UIEvent) {
+        print("Sender: \(sender), Event: \(event)")
+    }
 }
 

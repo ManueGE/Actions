@@ -9,16 +9,39 @@
 import UIKit
 import ObjectiveC
 
-// MARK: Action
-@objc protocol Action {
-    @objc func perform()
+/**
+ Protocol used to convert Swift closures into ObjC selectors
+ */
+@objc public protocol Action {
+    // The key used to store the `Action`. Must be unique.
+    var key: String { get }
+    
+    // The selector provided by the action
+    var selector: Selector { get }
 }
 
-extension Action {
-    var selector: Selector { return #selector(perform) }
+// Action that takes zero parameters
+class VoidAction: Action {
+    
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let selector: Selector = #selector(perform)
+    
+    var action: (Void -> Void)!
+    
+    init(action: Void -> Void) {
+        self.action = action
+    }
+    
+    @objc func perform() {
+        action()
+    }
 }
 
-class ActionWithParameter<T: NSObject>: Action {
+// Action which takes one single parameter
+class ParametizedAction<T: NSObject>: Action {
+    
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let selector: Selector = #selector(perform)
     
     let action: (T -> Void)!
     internal(set) var parameter: T!
@@ -33,35 +56,22 @@ class ActionWithParameter<T: NSObject>: Action {
     }
 }
 
-class VoidAction: Action {
-    
-    var action: (Void -> Void)!
-    
-    init(action: Void -> Void) {
-        self.action = action
-    }
-    
-    @objc func perform() {
-        action()
-    }
-}
-
-// MARK: Targetable
+// MARK: Actionable
 /*!
- Targetable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
+ Actionable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
  */
 protocol Actionable: class {
-    var actions: [Action]? { get set }
+    var actions: [String: Action]? { get }
 }
 
 private var actionsKey: UInt8 = 0
 extension Actionable {
-    var actions: [Action]? {
+    internal(set) var actions: [String: Action]? {
         get {
-            var targets = objc_getAssociatedObject(self, &actionsKey) as? [Action]
+            var targets = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
             
             if targets == nil {
-                targets = []
+                targets = [:]
                 objc_setAssociatedObject(self, &actionsKey, targets, .OBJC_ASSOCIATION_RETAIN)
             }
             
@@ -73,6 +83,10 @@ extension Actionable {
     }
     
     func retainAction(action: Action) {
-        actions!.append(action)
+        actions![action.key] = action
+    }
+    
+    func releaseAction(action: Action) {
+        actions![action.key] = nil
     }
 }
