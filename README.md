@@ -1,8 +1,8 @@
 # Actions
 
-**Actions** provides a set of extensions to add closures to UIView and UIControl. Also brings some convenience initializers to UIBarButtonItem and UIGestureRecognizer that allow creating them with a closure instead of a pair of target/action.
+**Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some convenience initializers to `UIBarButtonItem`, `UIGestureRecognizer` and `NSTimer`, that allow creating them with a closure instead of a pair of target/action.
 
-With Actions, you will easely add actions this way:
+With **Actions**, you will easily add actions this way:
 
 ````swift
 // UIView
@@ -25,6 +25,11 @@ let gestureRecognizer = UIRotationGestureRecognizer {
 // UIBarButtonItem
 let barButtonItem = UIBarButtonItem(title: "Title") {
     print("Bar button item tapped")
+}
+
+// NSTimer
+NSTimer.scheduledTimerWithTimeInterval(5) {
+    print("timer fired")
 }
 ````
 
@@ -52,12 +57,12 @@ If you don’t have CocoaPods installed or integrated into your project, you can
 
 ### UIView
 
-You can make your `UIViews` to respond to simple touches in an easy way. The allowed gestures are members of the enum `Gestures` and their values are: 
+You can make your `UIViews` to respond to simple touches. The allowed gestures are members of the enum `Gestures` and their values are: 
 
 - `tap`: One finger tap, accept one `Int` parameter that indicate the number of required touches. 
 - `swipe`: One finger swipe, accept one `UISwipeGestureRecognizerDirection` parameter that indicate the direction of the swip. 
-- `multiTap`: Any number of finger tap, accept two `Int` parameter that indicate the number of required fingers and touches. 
-- `multiSwipe`: Any number of finger swipe, accept one `UISwipeGestureRecognizerDirection` parameter that indicate the direction of the swip and an `Int` parameter that indicate the number of required fingers and touches.
+- `multiTap`: Tap with any number of fingers, accept two `Int` parameter that indicate the number of required fingers and touches. 
+- `multiSwipe`: Swipe with any number of fingers; accept one `UISwipeGestureRecognizerDirection` parameter that indicate the direction of the swip and an `Int` parameter that indicate the number of required fingers and touches.
 
 To add one of this gestures to a `UIView` you can do: 
 
@@ -69,17 +74,17 @@ view.addAction {
      print("view tapped")
 }
 
-// You can also make the closure have one argument (the view):
+// You can also make the closure have one argument (the own view):
 view.addAction { (view: UIView) in
     print("view \(view) tapped")
 }
 
-// Add 2 tap gesture
+// Add 3 tap gesture
 view.addAction(.tap(3)) {
     print("View tapped 3 times")
 }
 
-// Add a swipe gesture with the view as closure argument
+// Add a multi swipe gesture with the view as closure argument
 view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
     print("View \(view) swipped left with 2 fingers")
 }
@@ -96,7 +101,7 @@ You can add three types of closures:
 
 - Without any argument
 - With one argument, it will be the control itself.
-- With two arguments, the first one will be the control itself, the second one will be the `UIEvent`.
+- With two arguments, the first one will be the control itself, the second one will be the `UIEvent?`.
 
 You can add actions:
 
@@ -160,7 +165,7 @@ let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
 }
 ````
 
-All this methods has come additional, optional arguments. They also can be used with closures that takes a argument: 
+All this methods has some additional, optional arguments. They also can be used with closures that takes the `UIBarButtonItem` as an argument, for instance: 
 
 ````swift
 let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBarButtonItem) in
@@ -168,6 +173,34 @@ let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBar
 }
 ````
  
+### NSTimer
+
+Create a `NSTimer` with a closure instead of a pair of target/action. You can create timers in three different ways:
+
+````swift
+// Scheduele a timer
+NSTimer.scheduledTimerWithTimeInterval(5) {
+    print("timer fired")
+}
+
+// create a timer with a fire date
+let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) {
+    print("timer fired")
+}
+
+// create a timer with a time interval
+let timer = NSTimer(timeInterval: 0.5) {
+    print("timer fired")
+}
+````
+
+All this methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `NSTimer` as an argument, for example:
+
+````swift
+let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTimer) in
+    print("timer fired \(timer)")
+}
+````
 
 ---
 

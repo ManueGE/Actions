@@ -47,6 +47,10 @@ class ViewController: UIViewController {
         button.addAction(.TouchUpInside, action: eventAction)
         
         label.addAction(.swipe(.Left), action: parameterAction)
+        
+        NSTimer.scheduledTimerWithTimeInterval(5) {
+            print("timer fired")
+        }
     }
     
     func emptyAction() {
@@ -66,7 +70,7 @@ class ViewController: UIViewController {
         segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
     }
     
-    func eventAction(sender: UIButton, event: UIEvent) {
+    func eventAction(sender: UIButton, event: UIEvent?) {
         print("Sender: \(sender), Event: \(event)")
     }
 }
