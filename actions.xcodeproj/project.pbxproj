@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
 		325202401CFEDFC400CB20CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023F1CFEDFC400CB20CF /* ViewController.swift */; };
 		325202431CFEDFC400CB20CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202411CFEDFC400CB20CF /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Actions.swift"; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252023D1CFEDFC400CB20CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252023F1CFEDFC400CB20CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				325202541CFEE13400CB20CF /* UIControl+Actions.swift */,
 				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
 				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
+				321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */,
 				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
 				325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */,
+				321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
