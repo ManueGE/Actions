@@ -61,21 +61,21 @@ class ParametizedAction<T: NSObject>: Action {
  Actionable is a protocol used to store `Action` instances. Its only purpose is avoid them to be deallocated.
  */
 protocol Actionable: class {
-    var actions: [String: Action]? { get }
+    var actions: [String: Action]! { get }
 }
 
 private var actionsKey: UInt8 = 0
 extension Actionable {
-    internal(set) var actions: [String: Action]? {
+    private(set) var actions: [String: Action]! {
         get {
-            var targets = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
+            var actions = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
             
-            if targets == nil {
-                targets = [:]
-                objc_setAssociatedObject(self, &actionsKey, targets, .OBJC_ASSOCIATION_RETAIN)
+            if actions == nil {
+                actions = [:]
+                self.actions = actions
             }
             
-            return targets
+            return actions
         }
         set(newValue) {
             objc_setAssociatedObject(self, &actionsKey, newValue, .OBJC_ASSOCIATION_RETAIN)
@@ -83,10 +83,10 @@ extension Actionable {
     }
     
     func retainAction(action: Action) {
-        actions![action.key] = action
+        actions[action.key] = action
     }
     
     func releaseAction(action: Action) {
-        actions![action.key] = nil
+        actions[action.key] = nil
     }
 }
