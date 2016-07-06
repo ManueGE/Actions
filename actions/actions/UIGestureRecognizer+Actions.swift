@@ -18,9 +18,8 @@ extension UIGestureRecognizer: Actionable {
      - returns: Newly initialized item with the specified action.
      */
     public convenience init<T: UIGestureRecognizer>(action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(target: action, action: action.selector)
-        action.parameter = self as! T
         retainAction(action)
     }
     

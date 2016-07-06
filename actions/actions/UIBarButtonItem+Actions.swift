@@ -24,9 +24,8 @@ extension UIBarButtonItem: Actionable {
      - returns: Newly initialized item with the specified properties.
      */
     public convenience init<T: UIBarButtonItem>(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: action, action: action.selector)
-        action.parameter = self as! T
         retainAction(action)
     }
     
@@ -56,9 +55,8 @@ extension UIBarButtonItem: Actionable {
      - returns: Newly initialized item with the specified properties.
      */
     public convenience init<T: UIBarButtonItem>(title: String?, style: UIBarButtonItemStyle = .Plain, action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(title: title, style: style, target: action, action: action.selector)
-        action.parameter = self as! T
         retainAction(action)
     }
     
@@ -86,9 +84,8 @@ extension UIBarButtonItem: Actionable {
      - returns: Newly initialized item with the specified properties.
      */
     public convenience init<T: UIBarButtonItem>(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(barButtonSystemItem: systemItem, target: action, action: action.selector)
-        action.parameter = self as! T
         retainAction(action)
     }
     

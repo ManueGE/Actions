@@ -50,7 +50,7 @@ public extension UIControl {
      - returns: The added action
      */
     public func addAction<T: UIControl>(event: UIControlEvents, action: T -> Void) -> Action {
-        let action = ParametizedAction(parameter: (self as! T), action: action)
+        let action = ParametizedAction(action: action)
         addAction(event, action: action)
         return action
     }

@@ -9,6 +9,27 @@
 import UIKit
 
 /**
+ Action where the parameter can be assigned manually
+ */
+private class CustomParametizedAction<T: NSObject>: Action {
+    
+    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let selector: Selector = #selector(perform)
+    
+    let action: (T -> Void)!
+    var parameter: T!
+    
+    init(parameter: T?, action: T -> Void) {
+        self.action = action
+        self.parameter = parameter
+    }
+    
+    @objc func perform() {
+        action(parameter)
+    }
+}
+
+/**
  The gestures that can be used to trigger actions in `UIView`
  */
 public enum Gesture {
@@ -63,7 +84,7 @@ extension UIView: Actionable {
      - returns: The gesture recognizer that has been added
      */
     public func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
-        let action = ParametizedAction(parameter: (self as! T), action: action)
+        let action = CustomParametizedAction(parameter: (self as! T), action: action)
         return addAction(gesture, action: action)
     }
     
@@ -85,7 +106,7 @@ extension UIView: Actionable {
      - returns: The gesture recognizer that has been added
      */
     public func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
-        let action = ParametizedAction(parameter: (self as! T), action: action)
+        let action = CustomParametizedAction(parameter: (self as! T), action: action)
         return addAction(.tap(1), action: action)
     }
     
