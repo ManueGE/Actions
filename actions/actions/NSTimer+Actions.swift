@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Extension that allow create and scheduele `NSTimers` with closures instead of target/selector
 extension NSTimer: Actionable {
     
     // MARK: Inits with fire date
