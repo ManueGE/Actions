@@ -40,14 +40,6 @@ NSNotificationCenter.defaultCenter().addObserver(to: "NotificationName") {
 
 Keep reading to know how!
 
-## Supported classes
-- [UIView](#UIView)
-- [UIControl](#UIControl)
-- [UIGestureRecognizer](#UIGestureRecognizer)
-- [UIBarButtonItem](#UIBarButtonItem)
-- [NSTimer](#NSTimer)
-- [NSNotificationCenter](#NSNotificationCenter)
-
 ## Installation
 
 Add the following to your `Podfile`:
@@ -67,6 +59,14 @@ import Actions
 If you don’t have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
 
 ## Usage
+
+## Supported classes
+- [UIView](#UIView)
+- [UIControl](#UIControl)
+- [UIGestureRecognizer](#UIGestureRecognizer)
+- [UIBarButtonItem](#UIBarButtonItem)
+- [NSTimer](#NSTimer)
+- [NSNotificationCenter](#NSNotificationCenter)
 
 <a name="UIView"></a>
 ### UIView
