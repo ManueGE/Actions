@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "Actions"
-  spec.version      = "1.1.0"
+  spec.version      = "1.2.0"
   spec.summary      = "An easy way to add swift closures to UIView, UIControl and more"
   spec.description  = <<-DESC
-Actions provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some convenience initializers to `UIBarButtonItem`, `UIGestureRecognizer` and `NSTimer`, that allow creating them with a closure instead of a pair of target/action.
+Actions provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some methods to `UIBarButtonItem`, `UIGestureRecognizer`, `NSTimer` and `NSNotificationCenter`, that allow using them with a closure instead of a pair of target/action.
                    DESC
   spec.homepage     = "https://github.com/ManueGE/Actions/"
   spec.license      = "MIT"
