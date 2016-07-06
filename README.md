@@ -1,6 +1,6 @@
 # Actions
 
-**Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some convenience initializers to `UIBarButtonItem`, `UIGestureRecognizer` and `NSTimer`, that allow creating them with a closure instead of a pair of target/action.
+**Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some methods to `UIBarButtonItem`, `UIGestureRecognizer`, `NSTimer` and `NSNotificationCenter`, that allow using them with a closure instead of a pair of target/action.
 
 With **Actions**, you will easily add actions this way:
 
@@ -30,6 +30,11 @@ let barButtonItem = UIBarButtonItem(title: "Title") {
 // NSTimer
 NSTimer.scheduledTimerWithTimeInterval(5) {
     print("timer fired")
+}
+
+// NSNotificationCenter
+NSNotificationCenter.defaultCenter().addObserver(to: "NotificationName") {
+    print("Notification received")
 }
 ````
 
