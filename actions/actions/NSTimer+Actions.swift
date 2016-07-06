@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Extension that allow create and scheduele `NSTimers` with closures instead of target/selector
 extension NSTimer: Actionable {
     
     // MARK: Inits with fire date
@@ -23,9 +24,8 @@ extension NSTimer: Actionable {
      - returns: The receiver, initialized such that, when added to a run loop, it will fire at date and then, if repeats is YES, every ti after that.
      */
     public convenience init<T: NSTimer>(fireDate: NSDate, interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(fireDate: fireDate, interval: 0, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        action.parameter = self as! T
         retainAction(action)
     }
     
@@ -56,9 +56,8 @@ extension NSTimer: Actionable {
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
     public convenience init<T: NSTimer>(timeInterval interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: T -> Void) {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         self.init(timeInterval: interval, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        action.parameter = self as! T
         retainAction(action)
     }
     
@@ -87,14 +86,13 @@ extension NSTimer: Actionable {
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
     public class func scheduledTimerWithTimeInterval<T: NSTimer>(timeInterval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: T -> Void) -> NSTimer {
-        let action = ParametizedAction(parameter: nil, action: action)
+        let action = ParametizedAction(action: action)
         
         let timer = self.scheduledTimerWithTimeInterval(timeInterval,
                                                         target: action,
                                                         selector: action.selector,
                                                         userInfo: userInfo,
                                                         repeats: repeats)
-        action.parameter = timer as! T
         timer.retainAction(action)
         
         return timer

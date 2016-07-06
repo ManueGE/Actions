@@ -35,6 +35,14 @@ NSTimer.scheduledTimerWithTimeInterval(5) {
 
 Keep reading to know how!
 
+## Supported classes
+- [UIView](#UIView)
+- [UIControl](#UIControl)
+- [UIGestureRecognizer](#UIGestureRecognizer)
+- [UIBarButtonItem](#UIBarButtonItem)
+- [NSTimer](#NSTimer)
+- [NSNotificationCenter](#NSNotificationCenter)
+
 ## Installation
 
 Add the following to your `Podfile`:
@@ -55,6 +63,7 @@ If you don’t have CocoaPods installed or integrated into your project, you can
 
 ## Usage
 
+<a name="UIView"></a>
 ### UIView
 
 You can make your `UIViews` to respond to simple touches. The allowed gestures are members of the enum `Gestures` and their values are: 
@@ -92,7 +101,7 @@ view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
 
 All the add action methods returns the UIGestureRecognizer added to the view, in case you need it. 
 
-
+<a name="UIControl"></a>
 ### UIControl
 
 Assign actions to your `UIControl` events. 
@@ -125,11 +134,9 @@ textField.addAction([.EditingChanged, .EditingDidEnd]) { (textField: UITextField
 button.addAction(.TouchUpInside) { (sender, event) in
     print("Sender: \(sender), Event: \(event)")
 }
-
 ````
 
-
-
+<a name="UIGestureRecognizer"></a>
 ### UIGestureRecognizer
 
 Create `UIGestureRecognizer` with a closure instead of a pair of target/action:
@@ -146,7 +153,7 @@ let recognizer = UIRotationGestureRecognizer { (recognizer: UIRotationGestureRec
 }
 ````
 
-
+<a name="UIBarButtonItem"></a>
 ### UIBarButtonItem
 
 Create `UIBarButtonItem` with a closure instead of a pair of target/action. You can create bar button items from its title, image or using a system type:
@@ -165,14 +172,15 @@ let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
 }
 ````
 
-All this methods has some additional, optional arguments. They also can be used with closures that takes the `UIBarButtonItem` as an argument, for instance: 
+All these methods has some additional, optional arguments. They also can be used with closures that takes the `UIBarButtonItem` as an argument, for instance: 
 
 ````swift
 let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBarButtonItem) in
     print("image item \(item) pressed")
 }
 ````
- 
+
+<a name="NSTimer"></a>
 ### NSTimer
 
 Create a `NSTimer` with a closure instead of a pair of target/action. You can create timers in three different ways:
@@ -194,13 +202,35 @@ let timer = NSTimer(timeInterval: 0.5) {
 }
 ````
 
-All this methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `NSTimer` as an argument, for example:
+All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `NSTimer` as an argument, for example:
 
 ````swift
 let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTimer) in
     print("timer fired \(timer)")
 }
 ````
+
+<a name="NSNotificationCenter"></a>
+### NSNotificationCenter
+
+Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector:
+
+````swift
+let center = NSNotificationCenter.defaultCenter()
+
+// Void closure
+center.addObserver(to: notificationName) {
+    print("Notification received")
+}
+
+// Notification as closure parameter
+center.addObserver(to: notificationName, object: self) { (notification: NSNotification) in
+    print("Notification \(notification) received")
+}
+````
+
+These two methods has one additional, optional arguments `object`: the object whose notifications the observer wants to receive.
+
 
 ---
 

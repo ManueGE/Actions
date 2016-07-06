@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320E1E1A1D2CEDB700443691 /* NSNotificationCenter+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */; };
 		321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
 		325202401CFEDFC400CB20CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023F1CFEDFC400CB20CF /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Actions.swift"; sourceTree = "<group>"; };
 		321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Actions.swift"; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252023D1CFEDFC400CB20CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
 				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
 				321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */,
+				320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
+				320E1E1A1D2CEDB700443691 /* NSNotificationCenter+Actions.swift in Sources */,
 				325202511CFEE03800CB20CF /* Action.swift in Sources */,
 				325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */,
 				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
