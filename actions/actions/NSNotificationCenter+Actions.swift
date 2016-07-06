@@ -22,6 +22,7 @@ extension NSNotificationCenter: Actionable {
     public func addObserver<T: NSNotification>(to name: String?, object: AnyObject? = nil, action: (T) -> Void) {
         let action = ParametizedAction(action: action)
         NSNotificationCenter.defaultCenter().addObserver(action, selector: action.selector, name: name, object: object)
+        retainAction(action)
     }
     
     /**
@@ -35,6 +36,7 @@ extension NSNotificationCenter: Actionable {
     public func addObserver(to name: String?, object: AnyObject? = nil, action: Void -> Void) {
         let action = VoidAction(action: action)
         NSNotificationCenter.defaultCenter().addObserver(action, selector: action.selector, name: name, object: object)
+        retainAction(action)
     }
     
 }
