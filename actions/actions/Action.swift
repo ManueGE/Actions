@@ -44,17 +44,16 @@ class ParametizedAction<T: NSObject>: Action {
     @objc let selector: Selector = #selector(perform)
     
     let action: (T -> Void)!
-    internal(set) var parameter: T!
     
-    init(parameter: T?, action: T -> Void) {
+    init(action: T -> Void) {
         self.action = action
-        self.parameter = parameter
     }
     
-    @objc func perform() {
-        action(parameter)
+    @objc func perform(parameter: AnyObject) {
+        action(parameter as! T)
     }
 }
+
 
 // MARK: Actionable
 /*!

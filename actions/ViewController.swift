@@ -8,6 +8,7 @@
 
 import UIKit
 
+let notificationName = "NotificationName"
 class ViewController: UIViewController {
 
     @IBOutlet weak var redView: UIView!
@@ -51,6 +52,15 @@ class ViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(5) {
             print("timer fired")
         }
+        
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserver(to: notificationName) {
+            print("Notification received")
+        }
+        
+        center.addObserver(to: notificationName, object: self) { (notification: NSNotification) in
+            print("Notification \(notification) received")
+        }
     }
     
     func emptyAction() {
@@ -63,6 +73,9 @@ class ViewController: UIViewController {
     
     func barButtonAction(item: UIBarButtonItem) {
         print("item: \(item)")
+        NSNotificationCenter.defaultCenter().postNotificationName(notificationName,
+                                                                  object: self,
+                                                                  userInfo: ["test": "test"])
     }
     
     func didPressSegment(segmented: UISegmentedControl) {
