@@ -11,6 +11,7 @@ import Foundation
 /// Observe notifications with closures instead of a pair of observer/selector
 extension NSNotificationCenter: Actionable {
     
+    // MARK: Add observers
     /**
      Adds an entry to the receiver’s dispatch table with a closure and optional criteria: notification name and sender.
      Be sure to invoke removeObserver:name:object: when the observation is not longer needed
@@ -19,10 +20,11 @@ extension NSNotificationCenter: Actionable {
      - parameter object: The object whose notifications the observer wants to receive; that is, only notifications sent by this sender are delivered to the observer. Default is `nil`.
      - parameter action: The closure which will be called when a notification with the criteria is sent
      */
-    public func addObserver<T: NSNotification>(to name: String?, object: AnyObject? = nil, action: (T) -> Void) {
+    public func addObserver<T: NSNotification>(to name: String?, object: AnyObject? = nil, action: (T) -> Void) -> Action {
         let action = ParametizedAction(action: action)
         NSNotificationCenter.defaultCenter().addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action)
+        return action
     }
     
     /**
@@ -33,10 +35,21 @@ extension NSNotificationCenter: Actionable {
      - parameter object: The object whose notifications the observer wants to receive; that is, only notifications sent by this sender are delivered to the observer. Default is `nil`.
      - parameter action: The closure which will be called when a notification with the criteria is sent
      */
-    public func addObserver(to name: String?, object: AnyObject? = nil, action: Void -> Void) {
+    public func addObserver(to name: String?, object: AnyObject? = nil, action: Void -> Void) -> Action {
         let action = VoidAction(action: action)
         NSNotificationCenter.defaultCenter().addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action)
+        return action
+    }
+    
+    // MARK: Remove observers
+    /**  
+     Stop observing the given action.
+     - parameter action: The action which won't be observed anymore
+     */
+    public func stopObserving(action: Action) {
+        NSNotificationCenter.defaultCenter().removeObserver(action)
+        releaseAction(action)
     }
     
 }

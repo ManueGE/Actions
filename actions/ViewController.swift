@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var action: Action?
+    var notificationAction: Action!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class ViewController: UIViewController {
         }
         
         let center = NSNotificationCenter.defaultCenter()
-        center.addObserver(to: notificationName) {
+        notificationAction = center.addObserver(to: notificationName) {
             print("Notification received")
         }
         
@@ -81,6 +82,7 @@ class ViewController: UIViewController {
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
         segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
+        NSNotificationCenter.defaultCenter().stopObserving(notificationAction)
     }
     
     func eventAction(sender: UIButton, event: UIEvent?) {
