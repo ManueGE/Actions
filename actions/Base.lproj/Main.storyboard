@@ -66,6 +66,13 @@
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS5-9A-oZi">
+                                <rect key="frame" x="419" y="550" width="161" height="30"/>
+                                <state key="normal" title="Go to second controller"/>
+                                <connections>
+                                    <segue destination="Px9-s4-fFY" kind="show" id="Ve8-lz-wCW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -80,6 +87,8 @@
                             <constraint firstItem="qeC-ad-zNf" firstAttribute="top" secondItem="LFM-zD-BFk" secondAttribute="top" id="NxJ-CC-kMN"/>
                             <constraint firstItem="LFM-zD-BFk" firstAttribute="leading" secondItem="tHG-0M-S4e" secondAttribute="leading" constant="8" id="PNX-5H-YTO"/>
                             <constraint firstItem="iaC-OS-EHF" firstAttribute="top" secondItem="Ht1-31-CW5" secondAttribute="bottom" constant="8" id="SMY-YA-5mf"/>
+                            <constraint firstAttribute="trailing" secondItem="KS5-9A-oZi" secondAttribute="trailing" constant="20" id="Y5c-dX-yNt"/>
+                            <constraint firstItem="4uL-IP-Ip9" firstAttribute="top" secondItem="KS5-9A-oZi" secondAttribute="bottom" constant="20" id="dSb-Ll-h1G"/>
                             <constraint firstItem="fvV-bI-j4O" firstAttribute="leading" secondItem="LFM-zD-BFk" secondAttribute="leading" id="k4p-bg-3qP"/>
                             <constraint firstItem="wYu-v8-Hzs" firstAttribute="top" secondItem="iaC-OS-EHF" secondAttribute="bottom" constant="16" id="nYs-Af-nTf"/>
                             <constraint firstItem="Ht1-31-CW5" firstAttribute="leading" secondItem="fvV-bI-j4O" secondAttribute="leading" id="oT7-fd-miE"/>
@@ -100,6 +109,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-OR-uQ1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="388" y="380"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="8L8-JP-1Pa">
+            <objects>
+                <viewController id="Px9-s4-fFY" customClass="SecondViewController" customModule="actions" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8j6-Gg-0EL"/>
+                        <viewControllerLayoutGuide type="bottom" id="mW4-F2-yY4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uyL-cm-w7x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ke-B8-iFO">
+                                <rect key="frame" x="228" y="285" width="145" height="30"/>
+                                <state key="normal" title="POST NOTIFICATION"/>
+                                <connections>
+                                    <action selector="didPressPostNotification:" destination="Px9-s4-fFY" eventType="touchUpInside" id="5yj-Ls-Ebz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Ke-B8-iFO" firstAttribute="centerY" secondItem="uyL-cm-w7x" secondAttribute="centerY" id="COH-hG-rji"/>
+                            <constraint firstItem="0Ke-B8-iFO" firstAttribute="centerX" secondItem="uyL-cm-w7x" secondAttribute="centerX" id="mQ6-6N-hN9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dom-Ub-gMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="380"/>
         </scene>
     </scenes>
 </document>

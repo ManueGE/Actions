@@ -218,23 +218,26 @@ let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTi
 <a name="NSNotificationCenter"></a>
 ### NSNotificationCenter
 
-Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector:
+Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
 
 ````swift
 let center = NSNotificationCenter.defaultCenter()
 
-// Void closure
-center.addObserver(to: notificationName) {
+// This observation will live forever until it is stopped manually
+let action = center.observe(notificationName) {
     print("Notification received")
 }
 
-// Notification as closure parameter
-center.addObserver(to: notificationName, object: self) { (notification: NSNotification) in
-    print("Notification \(notification) received")
+// Stop observing the notification
+center.stopObserving(action)
+
+// This observation will live until the observer is deallocated
+center.add(observer: self, name: notificationName) { [unowned self] in
+    print("observe notification from \(self)")
 }
 ````
 
-These two methods has one additional, optional arguments `object`: the object whose notifications the observer wants to receive.
+These methods has some additional, optional arguments `object`: the object whose notifications the observer wants to receive.
 
 
 ---
