@@ -80,12 +80,14 @@ extension Actionable {
             objc_setAssociatedObject(self, &actionsKey, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
-    
-    func retainAction(action: Action) {
-        actions[action.key] = action
-    }
-    
-    func releaseAction(action: Action) {
-        actions[action.key] = nil
-    }
 }
+
+func retainAction(action: Action, _ object: NSObject) {
+    object.actions[action.key] = action
+}
+
+func releaseAction(action: Action, _ object: NSObject) {
+    object.actions[action.key] = nil
+}
+
+extension NSObject: Actionable {}

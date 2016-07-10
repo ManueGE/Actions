@@ -122,7 +122,7 @@ extension UIView: Actionable {
     }
     
     private func addAction(gesture: Gesture, action: Action) -> UIGestureRecognizer{
-        retainAction(action)
+        retainAction(action, self)
         let gesture = gesture.recognizer(action)
         userInteractionEnabled = true
         addGestureRecognizer(gesture)

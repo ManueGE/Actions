@@ -102,7 +102,7 @@ public extension UIControl {
     
     // MARK: Private
     private func addAction(event: UIControlEvents, action: Action) {
-        retainAction(action)
+        retainAction(action, self)
         addTarget(action,
                   action: action.selector,
                   forControlEvents: event)
@@ -116,6 +116,6 @@ public extension UIControl {
      */
     public func removeAction(action: Action, forControlEvents events: UIControlEvents) {
         removeTarget(action, action: action.selector, forControlEvents: events)
-        releaseAction(action)
+        releaseAction(action, self)
     }
 }

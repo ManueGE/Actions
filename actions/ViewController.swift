@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         redView.addAction(emptyAction)
         blueView.addAction(parameterAction)
-        redView.addAction(.swipe(.Left), action: emptyAction)
+        redView.addAction(.swipe(.Left), action: parameterAction)
         redView.addAction(.multiTap(taps: 5, fingers: 2), action: parameterAction)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
@@ -55,11 +55,11 @@ class ViewController: UIViewController {
         }
         
         let center = NSNotificationCenter.defaultCenter()
-        notificationAction = center.addObserver(to: notificationName) {
+        notificationAction = center.observe(notificationName) {
             print("Notification received")
         }
         
-        center.addObserver(to: notificationName, object: self) { (notification: NSNotification) in
+        center.observe(notificationName, object: self) { (notification: NSNotification) in
             print("Notification \(notification) received")
         }
     }
