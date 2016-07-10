@@ -40,14 +40,6 @@ NSNotificationCenter.defaultCenter().addObserver(to: "NotificationName") {
 
 Keep reading to know how!
 
-## Supported classes
-- [UIView](#UIView)
-- [UIControl](#UIControl)
-- [UIGestureRecognizer](#UIGestureRecognizer)
-- [UIBarButtonItem](#UIBarButtonItem)
-- [NSTimer](#NSTimer)
-- [NSNotificationCenter](#NSNotificationCenter)
-
 ## Installation
 
 Add the following to your `Podfile`:
@@ -68,8 +60,16 @@ If you don’t have CocoaPods installed or integrated into your project, you can
 
 ## Usage
 
+## Supported classes
+- [UIView](#UIView)
+- [UIControl](#UIControl)
+- [UIGestureRecognizer](#UIGestureRecognizer)
+- [UIBarButtonItem](#UIBarButtonItem)
+- [NSTimer](#NSTimer)
+- [NSNotificationCenter](#NSNotificationCenter)
+
 <a name="UIView"></a>
-### UIView
+### UIView [☝️](#usage)
 
 You can make your `UIViews` to respond to simple touches. The allowed gestures are members of the enum `Gestures` and their values are: 
 
@@ -107,7 +107,7 @@ view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
 All the add action methods returns the UIGestureRecognizer added to the view, in case you need it. 
 
 <a name="UIControl"></a>
-### UIControl
+### UIControl [☝️](#usage)
 
 Assign actions to your `UIControl` events. 
 
@@ -142,7 +142,7 @@ button.addAction(.TouchUpInside) { (sender, event) in
 ````
 
 <a name="UIGestureRecognizer"></a>
-### UIGestureRecognizer
+### UIGestureRecognizer [☝️](#usage)
 
 Create `UIGestureRecognizer` with a closure instead of a pair of target/action:
 
@@ -159,7 +159,7 @@ let recognizer = UIRotationGestureRecognizer { (recognizer: UIRotationGestureRec
 ````
 
 <a name="UIBarButtonItem"></a>
-### UIBarButtonItem
+### UIBarButtonItem [☝️](#usage)
 
 Create `UIBarButtonItem` with a closure instead of a pair of target/action. You can create bar button items from its title, image or using a system type:
 
@@ -186,7 +186,7 @@ let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBar
 ````
 
 <a name="NSTimer"></a>
-### NSTimer
+### NSTimer [☝️](#usage)
 
 Create a `NSTimer` with a closure instead of a pair of target/action. You can create timers in three different ways:
 
@@ -216,7 +216,7 @@ let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTi
 ````
 
 <a name="NSNotificationCenter"></a>
-### NSNotificationCenter
+### NSNotificationCenter [☝️](#usage)
 
 Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
 
