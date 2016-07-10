@@ -19,12 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var action: Action?
+    var notificationAction: Action!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         redView.addAction(emptyAction)
         blueView.addAction(parameterAction)
-        redView.addAction(.swipe(.Left), action: emptyAction)
+        redView.addAction(.swipe(.Left), action: parameterAction)
         redView.addAction(.multiTap(taps: 5, fingers: 2), action: parameterAction)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
@@ -54,11 +55,11 @@ class ViewController: UIViewController {
         }
         
         let center = NSNotificationCenter.defaultCenter()
-        center.addObserver(to: notificationName) {
+        notificationAction = center.observe(notificationName) {
             print("Notification received")
         }
         
-        center.addObserver(to: notificationName, object: self) { (notification: NSNotification) in
+        center.observe(notificationName, object: self) { (notification: NSNotification) in
             print("Notification \(notification) received")
         }
     }
@@ -81,6 +82,7 @@ class ViewController: UIViewController {
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
         segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
+        NSNotificationCenter.defaultCenter().stopObserving(notificationAction)
     }
     
     func eventAction(sender: UIButton, event: UIEvent?) {

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Extension that allow create and scheduele `NSTimers` with closures instead of target/selector
-extension NSTimer: Actionable {
+extension NSTimer {
     
     // MARK: Inits with fire date
     
@@ -26,7 +26,7 @@ extension NSTimer: Actionable {
     public convenience init<T: NSTimer>(fireDate: NSDate, interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(fireDate: fireDate, interval: 0, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /** 
@@ -42,7 +42,7 @@ extension NSTimer: Actionable {
     public convenience init(fireDate: NSDate, interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(fireDate: fireDate, interval: 0, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     // MARK: Inits with time interval
@@ -58,7 +58,7 @@ extension NSTimer: Actionable {
     public convenience init<T: NSTimer>(timeInterval interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(timeInterval: interval, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /**
@@ -73,7 +73,7 @@ extension NSTimer: Actionable {
     public convenience init(timeInterval interval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(timeInterval: interval, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     // MARK: Scheduele with interval
@@ -93,7 +93,7 @@ extension NSTimer: Actionable {
                                                         selector: action.selector,
                                                         userInfo: userInfo,
                                                         repeats: repeats)
-        timer.retainAction(action)
+        retainAction(action, timer)
         
         return timer
     }
@@ -114,7 +114,7 @@ extension NSTimer: Actionable {
                                                         selector: action.selector,
                                                         userInfo: userInfo,
                                                         repeats: repeats)
-        timer.retainAction(action)
+        retainAction(action, timer)
         
         return timer
     }

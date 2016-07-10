@@ -10,7 +10,7 @@ import UIKit
 
 
 /// Extension that provides methods to add actions to gesture recognizer
-extension UIGestureRecognizer: Actionable {
+extension UIGestureRecognizer {
     
     /**
      Initializes a new item with the given action
@@ -20,7 +20,7 @@ extension UIGestureRecognizer: Actionable {
     public convenience init<T: UIGestureRecognizer>(action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /**
@@ -31,6 +31,6 @@ extension UIGestureRecognizer: Actionable {
     public convenience init(action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
 }

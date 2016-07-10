@@ -19,6 +19,7 @@
 		325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202541CFEE13400CB20CF /* UIControl+Actions.swift */; };
 		325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */; };
 		325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */; };
+		32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CB47B81D318074000EB7CD /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		325202541CFEE13400CB20CF /* UIControl+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Actions.swift"; sourceTree = "<group>"; };
 		325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Actions.swift"; sourceTree = "<group>"; };
 		325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Actions.swift"; sourceTree = "<group>"; };
+		32CB47B81D318074000EB7CD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				3252023D1CFEDFC400CB20CF /* AppDelegate.swift */,
 				3252023F1CFEDFC400CB20CF /* ViewController.swift */,
+				32CB47B81D318074000EB7CD /* SecondViewController.swift */,
 				325202411CFEDFC400CB20CF /* Main.storyboard */,
 				3252024F1CFEE03200CB20CF /* actions */,
 				325202441CFEDFC400CB20CF /* Assets.xcassets */,
@@ -172,6 +175,7 @@
 				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
 				325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */,
 				321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */,
+				32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

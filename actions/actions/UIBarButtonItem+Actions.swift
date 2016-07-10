@@ -10,7 +10,7 @@ import UIKit
 
 
 /// Extension that provides methods to add actions to bar button items
-extension UIBarButtonItem: Actionable {
+extension UIBarButtonItem {
     
     // MARK: Init with image
     
@@ -26,7 +26,7 @@ extension UIBarButtonItem: Actionable {
     public convenience init<T: UIBarButtonItem>(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /**
@@ -41,7 +41,7 @@ extension UIBarButtonItem: Actionable {
     public convenience init(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .Plain, action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     // MARK: Init with title
@@ -57,7 +57,7 @@ extension UIBarButtonItem: Actionable {
     public convenience init<T: UIBarButtonItem>(title: String?, style: UIBarButtonItemStyle = .Plain, action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(title: title, style: style, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /**
@@ -71,7 +71,7 @@ extension UIBarButtonItem: Actionable {
     public convenience init(title: String?, style: UIBarButtonItemStyle = .Plain, action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(title: title, style: style, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     // MARK: Init with system item
@@ -86,7 +86,7 @@ extension UIBarButtonItem: Actionable {
     public convenience init<T: UIBarButtonItem>(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: T -> Void) {
         let action = ParametizedAction(action: action)
         self.init(barButtonSystemItem: systemItem, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
     
     /**
@@ -99,6 +99,6 @@ extension UIBarButtonItem: Actionable {
     public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: Void -> Void) {
         let action = VoidAction(action: action)
         self.init(barButtonSystemItem: systemItem, target: action, action: action.selector)
-        retainAction(action)
+        retainAction(action, self)
     }
 }
