@@ -75,7 +75,7 @@ public enum Gesture {
 }
 
 /// Extension that provides methods to add actions to views
-extension UIView: Actionable {
+extension UIView {
     
     /**
      Adds the given action as response to the gesture.
