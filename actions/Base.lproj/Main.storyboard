@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SFb-WJ-Ivd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SFb-WJ-Ivd">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -30,51 +31,44 @@
                         <viewControllerLayoutGuide type="bottom" id="4uL-IP-Ip9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tHG-0M-S4e">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFM-zD-BFk">
-                                <rect key="frame" x="8" y="72" width="288" height="128"/>
-                                <color key="backgroundColor" red="0.75687099359999999" green="0.0" blue="0.0070856412189999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75687099359999999" green="0.0" blue="0.0070856412189999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeC-ad-zNf">
-                                <rect key="frame" x="304" y="72" width="288" height="128"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="U9Z-b0-NQK"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-bI-j4O">
-                                <rect key="frame" x="8" y="208" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht1-31-CW5">
-                                <rect key="frame" x="8" y="237" width="584" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-OS-EHF">
-                                <rect key="frame" x="277" y="275" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wYu-v8-Hzs">
-                                <rect key="frame" x="240" y="321" width="121" height="29"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS5-9A-oZi">
-                                <rect key="frame" x="419" y="550" width="161" height="30"/>
                                 <state key="normal" title="Go to second controller"/>
                                 <connections>
                                     <segue destination="Px9-s4-fFY" kind="show" id="Ve8-lz-wCW"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ht1-31-CW5" firstAttribute="top" secondItem="fvV-bI-j4O" secondAttribute="bottom" constant="8" id="3vQ-rU-6uX"/>
                             <constraint firstItem="Ht1-31-CW5" firstAttribute="centerX" secondItem="tHG-0M-S4e" secondAttribute="centerX" id="52u-Ig-8gV"/>
@@ -119,18 +113,17 @@
                         <viewControllerLayoutGuide type="bottom" id="mW4-F2-yY4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uyL-cm-w7x">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ke-B8-iFO">
-                                <rect key="frame" x="228" y="285" width="145" height="30"/>
                                 <state key="normal" title="POST NOTIFICATION"/>
                                 <connections>
-                                    <action selector="didPressPostNotification:" destination="Px9-s4-fFY" eventType="touchUpInside" id="5yj-Ls-Ebz"/>
+                                    <action selector="didPressPostNotificationWithSender:" destination="Px9-s4-fFY" eventType="touchUpInside" id="6Ij-y7-LwU"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0Ke-B8-iFO" firstAttribute="centerY" secondItem="uyL-cm-w7x" secondAttribute="centerY" id="COH-hG-rji"/>
                             <constraint firstItem="0Ke-B8-iFO" firstAttribute="centerX" secondItem="uyL-cm-w7x" secondAttribute="centerX" id="mQ6-6N-hN9"/>
