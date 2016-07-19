@@ -23,12 +23,12 @@ import ObjectiveC
 // Action that takes zero parameters
 class VoidAction: Action {
     
-    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    var action: (Void -> Void)!
+    var action: ((Void) -> Void)!
     
-    init(action: Void -> Void) {
+    init(action: (Void) -> Void) {
         self.action = action
     }
     
@@ -38,14 +38,14 @@ class VoidAction: Action {
 }
 
 // Action which takes one single parameter
-class ParametizedAction<T: NSObject>: Action {
+class ParametizedAction<T: Any>: Action {
     
-    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    let action: (T -> Void)!
+    let action: ((T) -> Void)!
     
-    init(action: T -> Void) {
+    init(action: (T) -> Void) {
         self.action = action
     }
     
@@ -82,11 +82,11 @@ extension Actionable {
     }
 }
 
-func retainAction(action: Action, _ object: NSObject) {
+func retainAction(_ action: Action, _ object: NSObject) {
     object.actions[action.key] = action
 }
 
-func releaseAction(action: Action, _ object: NSObject) {
+func releaseAction(_ action: Action, _ object: NSObject) {
     object.actions[action.key] = nil
 }
 
