@@ -1,4 +1,8 @@
 # Change Log
+
+### 2.0.0 (11 September 2016)
+- **Swift 3** support.
+
 ### 1.3.0 (10 July 2016)
 - `addObserver(to:object:action:)` has been deprecated in favor of `observe(name:object:action:)`.
 - `NSNotificationCenter` observations can be stopped by calling `stopObserving(action)`. 
