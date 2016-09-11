@@ -1,6 +1,6 @@
 # Actions
 
-**Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some methods to `UIBarButtonItem`, `UIGestureRecognizer`, `NSTimer` and `NSNotificationCenter`, that allow using them with a closure instead of a pair of target/action.
+**Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some methods to `UIBarButtonItem`, `UIGestureRecognizer`, `Timer` and `NotificationCenter`, that allow using them with a closure instead of a pair of target/action.
 
 With **Actions**, you will easily add actions this way:
 
@@ -27,13 +27,13 @@ let barButtonItem = UIBarButtonItem(title: "Title") {
     print("Bar button item tapped")
 }
 
-// NSTimer
-NSTimer.scheduledTimerWithTimeInterval(5) {
+// Timer
+Timer.scheduledTimerWithTimeInterval(5) {
     print("timer fired")
 }
 
-// NSNotificationCenter
-NSNotificationCenter.defaultCenter().addObserver(to: "NotificationName") {
+// NotificationCenter
+NotificationCenter.default.addObserver(to: "NotificationName") {
     print("Notification received")
 }
 ````
@@ -65,8 +65,8 @@ If you don’t have CocoaPods installed or integrated into your project, you can
 - [UIControl](#UIControl)
 - [UIGestureRecognizer](#UIGestureRecognizer)
 - [UIBarButtonItem](#UIBarButtonItem)
-- [NSTimer](#NSTimer)
-- [NSNotificationCenter](#NSNotificationCenter)
+- [Timer](#Timer)
+- [NotificationCenter](#NotificationCenter)
 
 <a name="UIView"></a>
 ### UIView [☝️](#usage)
@@ -185,43 +185,43 @@ let imageTitle = UIBarButtonItem(image: UIImage(named: "image")!) { (item: UIBar
 }
 ````
 
-<a name="NSTimer"></a>
-### NSTimer [☝️](#usage)
+<a name="Timer"></a>
+### Timer [☝️](#usage)
 
-Create a `NSTimer` with a closure instead of a pair of target/action. You can create timers in three different ways:
+Create a `Timer` with a closure instead of a pair of target/action. You can create timers in three different ways:
 
 ````swift
 // Scheduele a timer
-NSTimer.scheduledTimerWithTimeInterval(5) {
+Timer.scheduledTimerWithTimeInterval(5) {
     print("timer fired")
 }
 
 // create a timer with a fire date
-let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) {
+let timer = Timer(fireDate: date, interval: 0.5, repeats: true) {
     print("timer fired")
 }
 
 // create a timer with a time interval
-let timer = NSTimer(timeInterval: 0.5) {
+let timer = Timer(timeInterval: 0.5) {
     print("timer fired")
 }
 ````
 
-All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `NSTimer` as an argument, for example:
+All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `Timer` as an argument, for example:
 
 ````swift
-let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTimer) in
+let timer = Timer(fireDate: date, interval: 0.5, repeats: true) { (timer: Timer) in
     print("timer fired \(timer)")
 }
 ````
 
-<a name="NSNotificationCenter"></a>
-### NSNotificationCenter [☝️](#usage)
+<a name="NotificationCenter"></a>
+### NotificationCenter [☝️](#usage)
 
-Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
+Add an observer to a `NotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
 
 ````swift
-let center = NSNotificationCenter.defaultCenter()
+let center = NotificationCenter.default
 
 // This observation will live forever until it is stopped manually
 let action = center.observe(notificationName) {
