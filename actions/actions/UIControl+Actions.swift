@@ -20,7 +20,7 @@ private class EventAction<T: UIControl>: Action {
         action(parameter as! T, event)
     }
     
-    init(action: (T, UIEvent?) -> Void) {
+    init(action: @escaping (T, UIEvent?) -> Void) {
         self.action = action
     }
 }
@@ -38,7 +38,7 @@ public extension UIControl {
      - returns: The added action
      */
     @discardableResult
-    public func add<T: UIControl>(event: UIControlEvents, action: (T, UIEvent?) -> Void) -> Action {
+    public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T, UIEvent?) -> Void) -> Action {
         let action = EventAction(action: action)
         add(event: event, action: action)
         return action
@@ -51,7 +51,7 @@ public extension UIControl {
      - returns: The added action
      */
     @discardableResult
-    public func add<T: UIControl>(event: UIControlEvents, action: (T) -> Void) -> Action {
+    public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T) -> Void) -> Action {
         let action = ParametizedAction(action: action)
         add(event: event, action: action)
         return action
@@ -64,7 +64,7 @@ public extension UIControl {
      - returns: The added action
      */
     @discardableResult
-    public func add(event: UIControlEvents, action: (Void) -> Void) -> Action {
+    public func add(event: UIControlEvents, action: @escaping (Void) -> Void) -> Action {
         let action = VoidAction(action: action)
         add(event: event, action: action)
         return action
@@ -80,7 +80,7 @@ public extension UIControl {
      - returns: The added actions
      */
     @discardableResult
-    public func add<T: UIControl>(events: [UIControlEvents], action: (T, UIEvent?) -> Void) -> [Action] {
+    public func add<T: UIControl>(events: [UIControlEvents], action: @escaping (T, UIEvent?) -> Void) -> [Action] {
         return events.map { add(event: $0, action: action) }
     }
     
@@ -91,7 +91,7 @@ public extension UIControl {
      - returns: The added actions
      */
     @discardableResult
-    public func addAction<T: UIControl>(events: [UIControlEvents], action: (T) -> Void) -> [Action] {
+    public func addAction<T: UIControl>(events: [UIControlEvents], action: @escaping (T) -> Void) -> [Action] {
         return events.map { add(event: $0, action: action) }
     }
     
@@ -102,7 +102,7 @@ public extension UIControl {
      - returns: The added actions
      */
     @discardableResult
-    public func addAction(events: [UIControlEvents], action: (Void) -> Void) -> [Action] {
+    public func addAction(events: [UIControlEvents], action: @escaping (Void) -> Void) -> [Action] {
         return events.map { add(event: $0, action: action) }
     }
     

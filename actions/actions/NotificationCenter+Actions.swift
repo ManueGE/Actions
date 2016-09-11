@@ -12,23 +12,6 @@ import Foundation
 extension NotificationCenter {
     
     // MARK: Add observers
-    /**
-     Adds an entry to the receiver’s dispatch table with a closure and optional criteria: notification name and sender.
-     The observation lives until it is manually stopped, so be sure to invoke `stopObserving(_)` when the observation is not longer needed
-     - parameter name: The name of the notification for which to register the observer; that is, only notifications with this name are delivered to the observer.
-     If you pass nil, the notification center doesn’t use a notification’s name to decide whether to deliver it to the observer.
-     - parameter object: The object whose notifications the observer wants to receive; that is, only notifications sent by this sender are delivered to the observer. Default is `nil`.
-     - parameter action: The closure which will be called when a notification with the criteria is sent
-     - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
-     */
-    @discardableResult
-    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: (Notification) -> Void) -> Action {
-        let action = ParametizedAction(action: action)
-        addObserver(action, selector: action.selector, name: name, object: object)
-        retainAction(action, self)
-        return action
-    }
-    
     
     /**
      Adds an entry to the receiver’s dispatch table with a closure and optional criteria: notification name and sender.
@@ -40,8 +23,26 @@ extension NotificationCenter {
      - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
      */
     @discardableResult
-    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: (Void) -> Void) -> Action {
+    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (Void) -> Void) -> Action {
         let action = VoidAction(action: action)
+        addObserver(action, selector: action.selector, name: name, object: object)
+        retainAction(action, self)
+        return action
+    }
+    
+    /**
+     Adds an entry to the receiver’s dispatch table with a closure and optional criteria: notification name and sender.
+     The observation lives until it is manually stopped, so be sure to invoke `stopObserving(_)` when the observation is not longer needed
+     - parameter name: The name of the notification for which to register the observer; that is, only notifications with this name are delivered to the observer.
+     If you pass nil, the notification center doesn’t use a notification’s name to decide whether to deliver it to the observer.
+     - parameter object: The object whose notifications the observer wants to receive; that is, only notifications sent by this sender are delivered to the observer. Default is `nil`.
+     - parameter action: The closure which will be called when a notification with the criteria is sent
+     - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
+     */
+    @discardableResult
+    @nonobjc
+    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (NSNotification) -> Void) -> Action {
+        let action = ParametizedAction(action: action)
         addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action, self)
         return action
@@ -61,7 +62,7 @@ extension NotificationCenter {
      - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
      */
     @discardableResult
-    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: (Void) -> Void) -> Action {
+    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (Void) -> Void) -> Action {
         let action = VoidAction(action: action)
         addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action, observer)
@@ -82,7 +83,8 @@ extension NotificationCenter {
      - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
      */
     @discardableResult
-    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: (Notification) -> Void) -> Action {
+    @nonobjc
+    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (NSNotification) -> Void) -> Action {
         let action = ParametizedAction(action: action)
         addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action, observer)

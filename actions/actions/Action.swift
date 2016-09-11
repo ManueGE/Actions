@@ -28,7 +28,7 @@ class VoidAction: Action {
     
     var action: ((Void) -> Void)!
     
-    init(action: (Void) -> Void) {
+    init(action: @escaping (Void) -> Void) {
         self.action = action
     }
     
@@ -45,7 +45,7 @@ class ParametizedAction<T: Any>: Action {
     
     let action: ((T) -> Void)!
     
-    init(action: (T) -> Void) {
+    init(action: @escaping (T) -> Void) {
         self.action = action
     }
     
@@ -65,7 +65,7 @@ protocol Actionable: class {
 
 private var actionsKey: UInt8 = 0
 extension Actionable {
-    private(set) var actions: [String: Action]! {
+    fileprivate(set) var actions: [String: Action]! {
         get {
             var actions = objc_getAssociatedObject(self, &actionsKey) as? [String: Action]
             

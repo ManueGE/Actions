@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             print("Notification received")
         }
         
-        center.observe(.notificationName, object: self) { (notification: Notification) in
+        center.observe(.notificationName, object: self) { (notification: NSNotification) in
             print("Notification \(notification) received")
         }
     }

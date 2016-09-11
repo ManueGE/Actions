@@ -23,7 +23,7 @@ extension Timer {
      - parameter action: The closure called on the timeout
      - returns: The receiver, initialized such that, when added to a run loop, it will fire at date and then, if repeats is YES, every ti after that.
      */
-    public convenience init<T: Timer>(fireAt fireDate: Date, interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (T) -> Void) {
+    public convenience init<T: Timer>(fireAt fireDate: Date, interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (T) -> Void) {
         let action = ParametizedAction(action: action)
         self.init(fireAt: fireDate, interval: 0, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
         retainAction(action, self)
@@ -39,7 +39,7 @@ extension Timer {
      - parameter action: The closure called on the timeout
      - returns: The receiver, initialized such that, when added to a run loop, it will fire at date and then, if repeats is YES, every ti after that.
      */
-    public convenience init(fireAt fireDate: Date, interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (Void) -> Void) {
+    public convenience init(fireAt fireDate: Date, interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (Void) -> Void) {
         let action = VoidAction(action: action)
         self.init(fireAt: fireDate, interval: 0, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
         retainAction(action, self)
@@ -55,7 +55,7 @@ extension Timer {
      - parameter action: The closure called on the timeout
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
-    public convenience init<T: Timer>(timeInterval interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (T) -> Void) {
+    public convenience init<T: Timer>(timeInterval interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (T) -> Void) {
         let action = ParametizedAction(action: action)
         self.init(timeInterval: interval, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
         retainAction(action, self)
@@ -70,7 +70,7 @@ extension Timer {
      - parameter action: The closure called on the timeout
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
-    public convenience init(timeInterval interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (Void) -> Void) {
+    public convenience init(timeInterval interval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (Void) -> Void) {
         let action = VoidAction(action: action)
         self.init(timeInterval: interval, target: action, selector: action.selector, userInfo: userInfo, repeats: repeats)
         retainAction(action, self)
@@ -86,7 +86,7 @@ extension Timer {
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
     @discardableResult
-    public class func scheduledTimer<T: Timer>(timeInterval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (T) -> Void) -> Timer {
+    public class func scheduledTimer<T: Timer>(timeInterval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (T) -> Void) -> Timer {
         let action = ParametizedAction(action: action)
         
         let timer = self.scheduledTimer(timeInterval: timeInterval,
@@ -108,7 +108,7 @@ extension Timer {
      - returns: A new NSTimer object, configured according to the specified parameters.
      */
     @discardableResult
-    public class func scheduledTimer(timeInterval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: (Void) -> Void) -> Timer {
+    public class func scheduledTimer(timeInterval: TimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, action: @escaping (Void) -> Void) -> Timer {
         let action = VoidAction(action: action)
         
         let timer = self.scheduledTimer(timeInterval: timeInterval,
