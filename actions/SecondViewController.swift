@@ -1,3 +1,4 @@
+
 //
 //  SecondViewController.swift
 //  actions
@@ -13,7 +14,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().add(observer: self, name: notificationName) { [unowned self] in
+        NotificationCenter.default.add(observer: self, name: .notificationName) { [unowned self] in
             print("observe notification from \(self)")
         }
  
@@ -28,7 +29,7 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func didPressPostNotification(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName(notificationName,
-                                                                  object: nil)
+        NotificationCenter.default.post(name: .notificationName,
+                                        object: nil)
     }
 }

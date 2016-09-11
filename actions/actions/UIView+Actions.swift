@@ -13,13 +13,13 @@ import UIKit
  */
 private class CustomParametizedAction<T: NSObject>: Action {
     
-    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    let action: (T -> Void)!
+    let action: ((T) -> Void)!
     var parameter: T!
     
-    init(parameter: T?, action: T -> Void) {
+    init(parameter: T?, action: @escaping (T) -> Void) {
         self.action = action
         self.parameter = parameter
     }
@@ -46,7 +46,7 @@ public enum Gesture {
     /// A swipe gesture with the given direction and number of fingers
     case multiSwipe(direction: UISwipeGestureRecognizerDirection, fingers: Int)
     
-    private func recognizer(action: Action) -> UIGestureRecognizer {
+    fileprivate func recognizer(action: Action) -> UIGestureRecognizer {
         
         switch self {
         case let .tap(taps):
@@ -75,7 +75,7 @@ public enum Gesture {
 }
 
 /// Extension that provides methods to add actions to views
-extension UIView: Actionable {
+extension UIView {
     
     /**
      Adds the given action as response to the gesture.
@@ -83,9 +83,10 @@ extension UIView: Actionable {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The gesture recognizer that has been added
      */
-    public func addAction<T: UIView>(gesture: Gesture, action: T -> Void) -> UIGestureRecognizer {
+    @discardableResult
+    public func add<T: UIView>(gesture: Gesture, action: @escaping (T) -> Void) -> UIGestureRecognizer {
         let action = CustomParametizedAction(parameter: (self as! T), action: action)
-        return addAction(gesture, action: action)
+        return add(gesture: gesture, action: action)
     }
     
     /**
@@ -94,9 +95,10 @@ extension UIView: Actionable {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The gesture recognizer that has been added
      */
-    public func addAction(gesture: Gesture, action: Void -> Void) -> UIGestureRecognizer {
+    @discardableResult
+    public func add(gesture: Gesture, action: @escaping (Void) -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
-        return addAction(gesture, action: action)
+        return add(gesture: gesture, action: action)
     }
     
     /**
@@ -105,9 +107,10 @@ extension UIView: Actionable {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The gesture recognizer that has been added
      */
-    public func addAction<T: UIView>(action: T -> Void) -> UIGestureRecognizer {
+    @discardableResult
+    public func addTap<T: UIView>(action: @escaping (T) -> Void) -> UIGestureRecognizer {
         let action = CustomParametizedAction(parameter: (self as! T), action: action)
-        return addAction(.tap(1), action: action)
+        return add(gesture: .tap(1), action: action)
     }
     
     /**
@@ -116,15 +119,17 @@ extension UIView: Actionable {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The gesture recognizer that has been added
      */
-    public func addAction(action: Void -> Void) -> UIGestureRecognizer {
+    @discardableResult
+    public func addAction(action: @escaping (Void) -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
-        return addAction(.tap(1), action: action)
+        return add(gesture: .tap(1), action: action)
     }
     
-    private func addAction(gesture: Gesture, action: Action) -> UIGestureRecognizer{
+    @discardableResult
+    private func add(gesture: Gesture, action: Action) -> UIGestureRecognizer{
         retainAction(action, self)
-        let gesture = gesture.recognizer(action)
-        userInteractionEnabled = true
+        let gesture = gesture.recognizer(action: action)
+        isUserInteractionEnabled = true
         addGestureRecognizer(gesture)
         return gesture
     }

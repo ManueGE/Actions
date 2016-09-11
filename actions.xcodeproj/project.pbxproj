@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320E1E1A1D2CEDB700443691 /* NSNotificationCenter+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */; };
-		321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */; };
+		320E1E1A1D2CEDB700443691 /* NotificationCenter+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */; };
+		321E2E621D2ACD9000BC6EA4 /* Timer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
 		325202401CFEDFC400CB20CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023F1CFEDFC400CB20CF /* ViewController.swift */; };
 		325202431CFEDFC400CB20CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202411CFEDFC400CB20CF /* Main.storyboard */; };
@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Actions.swift"; sourceTree = "<group>"; };
-		321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Actions.swift"; sourceTree = "<group>"; };
+		320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Actions.swift"; sourceTree = "<group>"; };
+		321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Actions.swift"; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252023D1CFEDFC400CB20CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252023F1CFEDFC400CB20CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 				325202541CFEE13400CB20CF /* UIControl+Actions.swift */,
 				325202561CFEE18700CB20CF /* UIBarButtonItem+Actions.swift */,
 				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
-				321E2E611D2ACD9000BC6EA4 /* NSTimer+Actions.swift */,
-				320E1E191D2CEDB700443691 /* NSNotificationCenter+Actions.swift */,
+				321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */,
+				320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -123,11 +123,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = manuege;
 				TargetAttributes = {
 					325202391CFEDFC400CB20CF = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -169,12 +170,12 @@
 			files = (
 				325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
-				320E1E1A1D2CEDB700443691 /* NSNotificationCenter+Actions.swift in Sources */,
+				320E1E1A1D2CEDB700443691 /* NotificationCenter+Actions.swift in Sources */,
 				325202511CFEE03800CB20CF /* Action.swift in Sources */,
 				325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */,
 				325202551CFEE13400CB20CF /* UIControl+Actions.swift in Sources */,
 				325202571CFEE18700CB20CF /* UIBarButtonItem+Actions.swift in Sources */,
-				321E2E621D2ACD9000BC6EA4 /* NSTimer+Actions.swift in Sources */,
+				321E2E621D2ACD9000BC6EA4 /* Timer+Actions.swift in Sources */,
 				32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 			);
@@ -293,6 +294,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuege.actions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -304,6 +306,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuege.actions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

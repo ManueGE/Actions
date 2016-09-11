@@ -11,7 +11,7 @@ import UIKit
 // Action to manage the two parameters selector allowed in controls
 private class EventAction<T: UIControl>: Action {
     
-    @objc let key = NSProcessInfo.processInfo().globallyUniqueString
+    @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
     let action: (T, UIEvent?) -> Void
@@ -20,7 +20,7 @@ private class EventAction<T: UIControl>: Action {
         action(parameter as! T, event)
     }
     
-    init(action: (T, UIEvent?) -> Void) {
+    init(action: @escaping (T, UIEvent?) -> Void) {
         self.action = action
     }
 }
@@ -37,9 +37,10 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added action
      */
-    public func addAction<T: UIControl>(event: UIControlEvents, action: (T, UIEvent?) -> Void) -> Action {
+    @discardableResult
+    public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T, UIEvent?) -> Void) -> Action {
         let action = EventAction(action: action)
-        addAction(event, action: action)
+        add(event: event, action: action)
         return action
     }
     
@@ -49,9 +50,10 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added action
      */
-    public func addAction<T: UIControl>(event: UIControlEvents, action: T -> Void) -> Action {
+    @discardableResult
+    public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T) -> Void) -> Action {
         let action = ParametizedAction(action: action)
-        addAction(event, action: action)
+        add(event: event, action: action)
         return action
     }
     
@@ -61,9 +63,10 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added action
      */
-    public func addAction(event: UIControlEvents, action: Void -> Void) -> Action {
+    @discardableResult
+    public func add(event: UIControlEvents, action: @escaping (Void) -> Void) -> Action {
         let action = VoidAction(action: action)
-        addAction(event, action: action)
+        add(event: event, action: action)
         return action
     }
     
@@ -76,8 +79,9 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added actions
      */
-    public func addAction<T: UIControl>(events: [UIControlEvents], action: (T, UIEvent?) -> Void) -> [Action] {
-        return events.map { addAction($0, action: action) }
+    @discardableResult
+    public func add<T: UIControl>(events: [UIControlEvents], action: @escaping (T, UIEvent?) -> Void) -> [Action] {
+        return events.map { add(event: $0, action: action) }
     }
     
     /**
@@ -86,8 +90,9 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added actions
      */
-    public func addAction<T: UIControl>(events: [UIControlEvents], action: T -> Void) -> [Action] {
-        return events.map { addAction($0, action: action) }
+    @discardableResult
+    public func addAction<T: UIControl>(events: [UIControlEvents], action: @escaping (T) -> Void) -> [Action] {
+        return events.map { add(event: $0, action: action) }
     }
     
     /**
@@ -96,16 +101,17 @@ public extension UIControl {
      - parameter action: The closure that will be called when the gesture is detected
      - returns: The added actions
      */
-    public func addAction(events: [UIControlEvents], action: Void -> Void) -> [Action] {
-        return events.map { addAction($0, action: action) }
+    @discardableResult
+    public func addAction(events: [UIControlEvents], action: @escaping (Void) -> Void) -> [Action] {
+        return events.map { add(event: $0, action: action) }
     }
     
     // MARK: Private
-    private func addAction(event: UIControlEvents, action: Action) {
+    private func add(event: UIControlEvents, action: Action) {
         retainAction(action, self)
         addTarget(action,
                   action: action.selector,
-                  forControlEvents: event)
+                  for: event)
     }
     
     // MARK: Remove
@@ -114,8 +120,8 @@ public extension UIControl {
      - parameter action: The action to disable
      - parameter events: The control events that you want to remove for the specified target object
      */
-    public func removeAction(action: Action, forControlEvents events: UIControlEvents) {
-        removeTarget(action, action: action.selector, forControlEvents: events)
+    public func remove(action: Action, forControlEvents events: UIControlEvents) {
+        removeTarget(action, action: action.selector, for: events)
         releaseAction(action, self)
     }
 }
