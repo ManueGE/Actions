@@ -17,7 +17,7 @@ extension UIGestureRecognizer {
      - parameter action: The action to be called when the button is tapped
      - returns: Newly initialized item with the specified action.
      */
-    public convenience init<T: UIGestureRecognizer>(action: T -> Void) {
+    public convenience init<T: UIGestureRecognizer>(action: @escaping (T) -> Void) {
         let action = ParametizedAction(action: action)
         self.init(target: action, action: action.selector)
         retainAction(action, self)
@@ -28,7 +28,7 @@ extension UIGestureRecognizer {
      - parameter action: The action to be called when the button is tapped
      - returns: Newly initialized item with the specified action.
      */
-    public convenience init(action: Void -> Void) {
+    public convenience init(action: @escaping (Void) -> Void) {
         let action = VoidAction(action: action)
         self.init(target: action, action: action.selector)
         retainAction(action, self)

@@ -8,7 +8,12 @@
 
 import UIKit
 
-let notificationName = "NotificationName"
+extension NSNotification.Name {
+    static var notificationName: NSNotification.Name {
+        return NSNotification.Name("NotificationName")
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var redView: UIView!
@@ -23,43 +28,43 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        redView.addAction(emptyAction)
-        blueView.addAction(parameterAction)
-        redView.addAction(.swipe(.Left), action: parameterAction)
-        redView.addAction(.multiTap(taps: 5, fingers: 2), action: parameterAction)
+        redView.addAction(action: emptyAction)
+        blueView.addTap(action: parameterAction)
+        redView.add(gesture: .swipe(.left), action: parameterAction)
+        redView.add(gesture: .multiTap(taps: 5, fingers: 2), action: parameterAction)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", action: barButtonAction)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, action: emptyAction)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, action: emptyAction)
         
         let recognizer = UIPinchGestureRecognizer { (recognizer) in
             print(recognizer)
         }
         blueView.addGestureRecognizer(recognizer)
         
-        textField.addAction(.EditingChanged) { (textField: UITextField) in
+        textField.add(event: .editingChanged) { (textField: UITextField) in
             print("Text did change: \(textField.text)")
         }
         
-        action = segmentedControl.addAction(.ValueChanged, action: didPressSegment)
+        action = segmentedControl.add(event: .valueChanged, action: didPressSegment)
         
-        button.addAction(.TouchUpInside) {
+        button.add(event: .touchUpInside) {
             print("button tapped")
         }
         
-        button.addAction(.TouchUpInside, action: eventAction)
+        button.add(event: .touchUpInside, action: eventAction)
         
-        label.addAction(.swipe(.Left), action: parameterAction)
+        label.add(gesture: .swipe(.left), action: parameterAction)
         
-        NSTimer.scheduledTimerWithTimeInterval(5) {
+        Timer.scheduledTimer(timeInterval: 5) {
             print("timer fired")
         }
         
-        let center = NSNotificationCenter.defaultCenter()
-        notificationAction = center.observe(notificationName) {
+        let center = NotificationCenter.default
+        notificationAction = center.observe(.notificationName) {
             print("Notification received")
         }
         
-        center.observe(notificationName, object: self) { (notification: NSNotification) in
+        center.observe(.notificationName, object: self) { (notification: NSNotification) in
             print("Notification \(notification) received")
         }
     }
@@ -74,15 +79,15 @@ class ViewController: UIViewController {
     
     func barButtonAction(item: UIBarButtonItem) {
         print("item: \(item)")
-        NSNotificationCenter.defaultCenter().postNotificationName(notificationName,
-                                                                  object: self,
-                                                                  userInfo: ["test": "test"])
+        NotificationCenter.default.post(name: .notificationName,
+                                        object: self,
+                                        userInfo: ["test": "test"])
     }
     
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
-        segmentedControl.removeAction(action!, forControlEvents: .ValueChanged)
-        NSNotificationCenter.defaultCenter().stopObserving(notificationAction)
+        segmentedControl.remove(action: action!, forControlEvents: .valueChanged)
+        NotificationCenter.default.stopObserving(action: notificationAction)
     }
     
     func eventAction(sender: UIButton, event: UIEvent?) {
