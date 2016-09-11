@@ -20,6 +20,6 @@ Actions provides a set of extensions to add closures to `UIView` and `UIControl`
   spec.framework = "Foundation"
 
   spec.source_files = "actions/actions/*.{swift}"
-  sepc.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 
 end
