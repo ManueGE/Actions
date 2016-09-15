@@ -7,13 +7,13 @@ With **Actions**, you will easily add actions this way:
 ````swift
 // UIView
 let imageView = UIImageView()
-imageView.addAction(.swipe(.Left)) {
+imageView.add(gesture: .swipe(.Left)) {
     print("Image swipped")
 }
 
 // UIControl
 let button = UIButton()
-button.addAction(.TouchUpInside) {
+button.add(event: .touchUpInside) {
     print("Button tapped")
 }
 
@@ -27,13 +27,13 @@ let barButtonItem = UIBarButtonItem(title: "Title") {
     print("Bar button item tapped")
 }
 
-// NSTimer
-NSTimer.scheduledTimerWithTimeInterval(5) {
+// Timer (formally NSTimer)
+Timer.scheduledTimer(timeInterval: 5) {
     print("timer fired")
 }
 
-// NSNotificationCenter
-NSNotificationCenter.defaultCenter().addObserver(to: "NotificationName") {
+// NotificationCenter (formally NSNotificationCenter)
+NotificationCenter.default.add(observer: self, name: "NotificationName") {
     print("Notification received")
 }
 ````
