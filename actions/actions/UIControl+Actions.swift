@@ -64,7 +64,7 @@ public extension UIControl {
      - returns: The added action
      */
     @discardableResult
-    public func add(event: UIControlEvents, action: @escaping (Void) -> Void) -> Action {
+    public func add(event: UIControlEvents, action: @escaping () -> Void) -> Action {
         let action = VoidAction(action: action)
         add(event: event, action: action)
         return action
@@ -102,7 +102,7 @@ public extension UIControl {
      - returns: The added actions
      */
     @discardableResult
-    public func addAction(events: [UIControlEvents], action: @escaping (Void) -> Void) -> [Action] {
+    public func addAction(events: [UIControlEvents], action: @escaping () -> Void) -> [Action] {
         return events.map { add(event: $0, action: action) }
     }
     

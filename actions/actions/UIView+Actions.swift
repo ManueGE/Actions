@@ -96,7 +96,7 @@ extension UIView {
      - returns: The gesture recognizer that has been added
      */
     @discardableResult
-    public func add(gesture: Gesture, action: @escaping (Void) -> Void) -> UIGestureRecognizer {
+    public func add(gesture: Gesture, action: @escaping () -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return add(gesture: gesture, action: action)
     }
@@ -120,7 +120,7 @@ extension UIView {
      - returns: The gesture recognizer that has been added
      */
     @discardableResult
-    public func addAction(action: @escaping (Void) -> Void) -> UIGestureRecognizer {
+    public func addAction(action: @escaping () -> Void) -> UIGestureRecognizer {
         let action = VoidAction(action: action)
         return add(gesture: .tap(1), action: action)
     }
