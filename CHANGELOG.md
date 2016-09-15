@@ -1,5 +1,8 @@
 # Change Log
 
+### 2.0.1 (15 September 2016)
+- Replace `(Void)` with `()` in closures definition.
+
 ### 2.0.0 (11 September 2016)
 - **Swift 3** support.
 

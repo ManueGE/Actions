@@ -26,9 +26,9 @@ class VoidAction: Action {
     @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    var action: ((Void) -> Void)!
+    var action: (() -> Void)!
     
-    init(action: @escaping (Void) -> Void) {
+    init(action: @escaping () -> Void) {
         self.action = action
     }
     

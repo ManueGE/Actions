@@ -23,7 +23,7 @@ extension NotificationCenter {
      - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
      */
     @discardableResult
-    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (Void) -> Void) -> Action {
+    public func observe(_ name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping () -> Void) -> Action {
         let action = VoidAction(action: action)
         addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action, self)
@@ -62,7 +62,7 @@ extension NotificationCenter {
      - returns: The action that has been added to the receiver. You can catch this value to stop observing it by calling `stopObserving(_)`.
      */
     @discardableResult
-    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping (Void) -> Void) -> Action {
+    public func add(observer: NSObject, name: NSNotification.Name?, object: AnyObject? = nil, action: @escaping () -> Void) -> Action {
         let action = VoidAction(action: action)
         addObserver(action, selector: action.selector, name: name, object: object)
         retainAction(action, observer)

@@ -7,13 +7,13 @@ With **Actions**, you will easily add actions this way:
 ````swift
 // UIView
 let imageView = UIImageView()
-imageView.addAction(.swipe(.Left)) {
+imageView.add(gesture: .swipe(.Left)) {
     print("Image swipped")
 }
 
 // UIControl
 let button = UIButton()
-button.addAction(.TouchUpInside) {
+button.add(event: .touchUpInside) {
     print("Button tapped")
 }
 
@@ -27,13 +27,13 @@ let barButtonItem = UIBarButtonItem(title: "Title") {
     print("Bar button item tapped")
 }
 
-// Timer
-Timer.scheduledTimerWithTimeInterval(5) {
+// Timer (formally NSTimer)
+Timer.scheduledTimer(timeInterval: 5) {
     print("timer fired")
 }
 
-// NotificationCenter
-NotificationCenter.default.addObserver(to: "NotificationName") {
+// NotificationCenter (formally NSNotificationCenter)
+NotificationCenter.default.add(observer: self, name: "NotificationName") {
     print("Notification received")
 }
 ````
@@ -94,12 +94,12 @@ view.addAction { (view: UIView) in
 }
 
 // Add 3 tap gesture
-view.addAction(.tap(3)) {
+view.add(gesture: .tap(3)) {
     print("View tapped 3 times")
 }
 
 // Add a multi swipe gesture with the view as closure argument
-view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
+view.add(gesture: .multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
     print("View \(view) swipped left with 2 fingers")
 }
 ```` 
@@ -119,24 +119,24 @@ You can add three types of closures:
 
 You can add actions:
 
-- To a single `UIControlEvent`, using the method `addAction(_:UIControlEvent, action:Void -> Void)`
-- To multple control events at the same time: `addAction(_:[UIControlEvent], action:Void -> Void)`
+- To a single `UIControlEvent`, using the method `add(event: UIControlEvent, action: () -> Void)`
+- To multple control events at the same time: `add(events: [UIControlEvent], action: ()) -> Void)`
 
 Here there are some examples:
 
 ````swift
 // Closure without arguments and single event
-button.addAction(.TouchUpInside) {
+button.add(event: .touchUpInside) {
     print("button tapped")
 }
 
 // Closure with one argument and multiple events
-textField.addAction([.EditingChanged, .EditingDidEnd]) { (textField: UITextField) in
+textField.add(events: [.editingChanged, .editingDidEnd]) { (textField: UITextField) in
     print("Text did change: \(textField.text)")
 }
 
 // Closure with two arguments
-button.addAction(.TouchUpInside) { (sender, event) in
+button.add(event: .touchUpInside) { (sender, event) in
     print("Sender: \(sender), Event: \(event)")
 }
 ````
@@ -172,7 +172,7 @@ let titleItem = UIBarButtonItem(title: "Title") {
     print("title item pressed")
 }
 
-let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
+let systemItem = UIBarButtonItem(barButtonSystemItem: .action) {
     print("system item pressed")
 }
 ````
@@ -192,12 +192,12 @@ Create a `Timer` with a closure instead of a pair of target/action. You can crea
 
 ````swift
 // Scheduele a timer
-Timer.scheduledTimerWithTimeInterval(5) {
+Timer.scheduledTimer(timeInterval: 5) {
     print("timer fired")
 }
 
 // create a timer with a fire date
-let timer = Timer(fireDate: date, interval: 0.5, repeats: true) {
+let timer = Timer(fire: date, interval: 0.5, repeats: true) {
     print("timer fired")
 }
 
@@ -207,10 +207,11 @@ let timer = Timer(timeInterval: 0.5) {
 }
 ````
 
+
 All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `Timer` as an argument, for example:
 
 ````swift
-let timer = Timer(fireDate: date, interval: 0.5, repeats: true) { (timer: Timer) in
+let timer = Timer(fire: date, interval: 0.5, repeats: true) { (timer: Timer) in
     print("timer fired \(timer)")
 }
 ````
@@ -229,7 +230,7 @@ let action = center.observe(notificationName) {
 }
 
 // Stop observing the notification
-center.stopObserving(action)
+center.stopObserving(action: action)
 
 // This observation will live until the observer is deallocated
 center.add(observer: self, name: notificationName) { [unowned self] in

@@ -38,7 +38,7 @@ extension UIBarButtonItem {
      - parameter action: The action to be called when the button is tapped
      - returns: Newly initialized item with the specified properties.
      */
-    public convenience init(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .plain, action: @escaping (Void) -> Void) {
+    public convenience init(image: UIImage?, landscapeImagePhone: UIImage? = nil, style: UIBarButtonItemStyle = .plain, action: @escaping () -> Void) {
         let action = VoidAction(action: action)
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: action, action: action.selector)
         retainAction(action, self)
@@ -68,7 +68,7 @@ extension UIBarButtonItem {
      - parameter action: The action to be called when the button is tapped
      - returns: Newly initialized item with the specified properties.
      */
-    public convenience init(title: String?, style: UIBarButtonItemStyle = .plain, action: @escaping (Void) -> Void) {
+    public convenience init(title: String?, style: UIBarButtonItemStyle = .plain, action: @escaping () -> Void) {
         let action = VoidAction(action: action)
         self.init(title: title, style: style, target: action, action: action.selector)
         retainAction(action, self)
@@ -96,7 +96,7 @@ extension UIBarButtonItem {
      - parameter action: The action to be called when the button is tapped
      - returns: Newly initialized item with the specified properties.
      */
-    public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: @escaping (Void) -> Void) {
+    public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: @escaping () -> Void) {
         let action = VoidAction(action: action)
         self.init(barButtonSystemItem: systemItem, target: action, action: action.selector)
         retainAction(action, self)
