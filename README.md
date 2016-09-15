@@ -94,12 +94,12 @@ view.addAction { (view: UIView) in
 }
 
 // Add 3 tap gesture
-view.addAction(.tap(3)) {
+view.add(gesture: .tap(3)) {
     print("View tapped 3 times")
 }
 
 // Add a multi swipe gesture with the view as closure argument
-view.addAction(.multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
+view.add(gesture: .multiSwipe(direction: .Left, fingers: 2)) { (view: UIView) in
     print("View \(view) swipped left with 2 fingers")
 }
 ```` 
@@ -126,17 +126,17 @@ Here there are some examples:
 
 ````swift
 // Closure without arguments and single event
-button.addAction(.TouchUpInside) {
+button.add(event: .TouchUpInside) {
     print("button tapped")
 }
 
 // Closure with one argument and multiple events
-textField.addAction([.EditingChanged, .EditingDidEnd]) { (textField: UITextField) in
+textField.add(events: [.EditingChanged, .EditingDidEnd]) { (textField: UITextField) in
     print("Text did change: \(textField.text)")
 }
 
 // Closure with two arguments
-button.addAction(.TouchUpInside) { (sender, event) in
+button.add(event: .TouchUpInside) { (sender, event) in
     print("Sender: \(sender), Event: \(event)")
 }
 ````
@@ -172,7 +172,7 @@ let titleItem = UIBarButtonItem(title: "Title") {
     print("title item pressed")
 }
 
-let systemItem = UIBarButtonItem(barButtonSystemItem: .Action) {
+let systemItem = UIBarButtonItem(barButtonSystemItem: .action) {
     print("system item pressed")
 }
 ````
@@ -192,25 +192,25 @@ Create a `NSTimer` with a closure instead of a pair of target/action. You can cr
 
 ````swift
 // Scheduele a timer
-NSTimer.scheduledTimerWithTimeInterval(5) {
+Timer.scheduledTimer(timeInterval: 5) {
     print("timer fired")
 }
 
 // create a timer with a fire date
-let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) {
+let timer = Timer(fire: date, interval: 0.5, repeats: true) {
     print("timer fired")
 }
 
 // create a timer with a time interval
-let timer = NSTimer(timeInterval: 0.5) {
+let timer = Timer(timeInterval: 0.5) {
     print("timer fired")
 }
 ````
 
-All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `NSTimer` as an argument, for example:
+All these methods has some additional, optional arguments as `repeats` and `userInfo`. They also can be used with closures that takes the `Timer` as an argument, for example:
 
 ````swift
-let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTimer) in
+let timer = Timer(fire: date, interval: 0.5, repeats: true) { (timer: Timer) in
     print("timer fired \(timer)")
 }
 ````
@@ -221,7 +221,7 @@ let timer = NSTimer(fireDate: date, interval: 0.5, repeats: true) { (timer: NSTi
 Add an observer to a `NSNotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
 
 ````swift
-let center = NSNotificationCenter.defaultCenter()
+let center = NotificationCenter.default
 
 // This observation will live forever until it is stopped manually
 let action = center.observe(notificationName) {
@@ -229,7 +229,7 @@ let action = center.observe(notificationName) {
 }
 
 // Stop observing the notification
-center.stopObserving(action)
+center.stopObserving(action: action)
 
 // This observation will live until the observer is deallocated
 center.add(observer: self, name: notificationName) { [unowned self] in
