@@ -126,17 +126,17 @@ Here there are some examples:
 
 ````swift
 // Closure without arguments and single event
-button.add(event: .TouchUpInside) {
+button.add(event: .touchUpInside) {
     print("button tapped")
 }
 
 // Closure with one argument and multiple events
-textField.add(events: [.EditingChanged, .EditingDidEnd]) { (textField: UITextField) in
+textField.add(events: [.editingChanged, .editingDidEnd]) { (textField: UITextField) in
     print("Text did change: \(textField.text)")
 }
 
 // Closure with two arguments
-button.add(event: .TouchUpInside) { (sender, event) in
+button.add(event: .touchUpInside) { (sender, event) in
     print("Sender: \(sender), Event: \(event)")
 }
 ````
