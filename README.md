@@ -119,8 +119,8 @@ You can add three types of closures:
 
 You can add actions:
 
-- To a single `UIControlEvent`, using the method `addAction(_:UIControlEvent, action:Void -> Void)`
-- To multple control events at the same time: `addAction(_:[UIControlEvent], action:Void -> Void)`
+- To a single `UIControlEvent`, using the method `add(event: UIControlEvent, action: () -> Void)`
+- To multple control events at the same time: `add(events: [UIControlEvent], action: ()) -> Void)`
 
 Here there are some examples:
 
