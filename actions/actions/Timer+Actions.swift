@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Extension that allow create and scheduele `Timers` with closures instead of target/selector
+/// Extension that allow create and schedule `Timers` with closures instead of target/selector
 extension Timer {
     
     // MARK: Inits with fire date
@@ -76,7 +76,7 @@ extension Timer {
         retainAction(action, self)
     }
     
-    // MARK: Scheduele with interval
+    // MARK: Schedule with interval
     /** 
      Creates and returns a new Timer object and schedules it on the current run loop in the default mode.
      - parameter timeInterval: The number of seconds between firings of the timer. If ti is less than or equal to 0.0, this method chooses the nonnegative value of 0.1 milliseconds instead.

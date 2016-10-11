@@ -21,7 +21,7 @@ extension UIControl {
         }
         
         let action = add(event: event) { (control: T, event: UIEvent?) in
-            throttle.scheduele(with: (control, event))
+            throttle.schedule(with: (control, event))
         }
         
         add(throttle: throttle, action: action, for: event)
@@ -29,18 +29,18 @@ extension UIControl {
     
     public func throttle<T: UIControl>(_ event: UIControlEvents, interval: TimeInterval, handler: @escaping (T) -> Void) {
         
-        let throttle = Throttle(interval: interval, handler: handler)
+        let throttle = Throttle(interval: interval, action: handler)
         let action = add(event: event) { (control: T) in
-            throttle.scheduele(with: control)
+            throttle.schedule(with: control)
         }
         
         add(throttle: throttle, action: action, for: event)
     }
     
     public func throttle(_ event: UIControlEvents, interval: TimeInterval, handler: @escaping () -> Void) {
-        let throttle = Throttle(interval: interval, handler: handler)
+        let throttle = Throttle(interval: interval, action: handler)
         let action = add(event: event) { 
-            throttle.scheduele(with: ())
+            throttle.schedule(with: ())
         }
         
         add(throttle: throttle, action: action, for: event)
