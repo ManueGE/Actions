@@ -45,6 +45,10 @@ class ViewController: UIViewController {
             print("Text did change: \(textField.text)")
         }
         
+        textField.throttle(.editingChanged, interval: 2) { (textField: UITextField) in
+            print("Text changed to: \(textField.text)")
+        }
+        
         action = segmentedControl.add(event: .valueChanged, action: didPressSegment)
         
         button.add(event: .touchUpInside) {
@@ -82,6 +86,10 @@ class ViewController: UIViewController {
         NotificationCenter.default.post(name: .notificationName,
                                         object: self,
                                         userInfo: ["test": "test"])
+        
+        textField.throttle(.editingChanged, interval: 1) { (textField: UITextField) in
+            print("And now the text changed again to: \(textField.text)")
+        }
     }
     
     func didPressSegment(segmented: UISegmentedControl) {
