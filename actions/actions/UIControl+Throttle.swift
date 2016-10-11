@@ -87,7 +87,6 @@ extension UIControl {
         removeThrottle(for: event)
         self.throttles[event.rawValue] = (throttle, action)
     }
-    
 
     // MARK - Throttles
     private var throttles: [UInt: ThrottleAndAction] {
