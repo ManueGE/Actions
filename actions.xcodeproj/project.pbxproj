@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320754341DACF68700944AED /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320754331DACF68700944AED /* Throttle.swift */; };
+		320754361DACF6D800944AED /* UIControl+Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320754351DACF6D800944AED /* UIControl+Throttle.swift */; };
 		320E1E1A1D2CEDB700443691 /* NotificationCenter+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */; };
 		321E2E621D2ACD9000BC6EA4 /* Timer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320754331DACF68700944AED /* Throttle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
+		320754351DACF6D800944AED /* UIControl+Throttle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Throttle.swift"; sourceTree = "<group>"; };
 		320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Actions.swift"; sourceTree = "<group>"; };
 		321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Actions.swift"; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +96,8 @@
 				325202581CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift */,
 				321E2E611D2ACD9000BC6EA4 /* Timer+Actions.swift */,
 				320E1E191D2CEDB700443691 /* NotificationCenter+Actions.swift */,
+				320754331DACF68700944AED /* Throttle.swift */,
+				320754351DACF6D800944AED /* UIControl+Throttle.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 			files = (
 				325202531CFEE05700CB20CF /* UIView+Actions.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
+				320754341DACF68700944AED /* Throttle.swift in Sources */,
+				320754361DACF6D800944AED /* UIControl+Throttle.swift in Sources */,
 				320E1E1A1D2CEDB700443691 /* NotificationCenter+Actions.swift in Sources */,
 				325202511CFEE03800CB20CF /* Action.swift in Sources */,
 				325202591CFEE20D00CB20CF /* UIGestureRecognizer+Actions.swift in Sources */,

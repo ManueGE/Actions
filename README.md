@@ -17,6 +17,11 @@ button.add(event: .touchUpInside) {
     print("Button tapped")
 }
 
+let textField = UITextField()
+textField.throttle(.editingChanged, interval: 0.5) { (textField: UITextField) in
+    print("Text changed to: \(textField.text)")
+}
+
 // UIGestureRecognizer
 let gestureRecognizer = UIRotationGestureRecognizer {
     print("Gesture triggered")
@@ -140,6 +145,21 @@ button.add(event: .touchUpInside) { (sender, event) in
     print("Sender: \(sender), Event: \(event)")
 }
 ````
+
+#### Throttle
+Actions allows `UIControl` schedulling actions to be called after a specific time interval, and prevent it of being called more than once in that interval. In other words, if the action is scheduled again before the time interval expires, it cancels the previous call (if any) preventing the action to be called twice.
+
+A typical example is a `UITextField` which will trigger a search every time the user enter some text. If this search implies a http request, it can lead to overload the server if you make a request every time the user enter a character. With `throttle` you can wait a few milliseconds to check if the user is still typing and just send the action if the user hasn't entered any character in a time interval. 
+
+You can use throttle this way: 
+
+````swift
+textField.throttle(.editingChanged, interval: 0.5) { (textField: UITextField) in
+    self.performSearch(with: textField.text)
+}
+````
+
+Other than the `UIControl` extension, the `Throttle` class can be used standalone to add your custom throttles all over your app. 
 
 <a name="UIGestureRecognizer"></a>
 ### UIGestureRecognizer [☝️](#usage)
