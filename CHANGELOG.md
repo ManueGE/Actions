@@ -1,5 +1,8 @@
 # Change Log
 
+### 2.1.0 (11 October 2016)
+- Add `throttle` extension for `UIControl`.
+
 ### 2.0.1 (15 September 2016)
 - Replace `(Void)` with `()` in closures definition.
 
