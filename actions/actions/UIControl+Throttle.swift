@@ -73,17 +73,23 @@ extension UIControl {
         add(throttle: throttle, action: action, for: event)
     }
     
-    private func add<T>(throttle: Throttle<T>, action: Action, for event: UIControlEvents) {
-        
+    /// Remove the current Throttle (if any) for the given control event
+    ///
+    /// - parameter event: The event whose Throttle will be removed
+    public func removeThrottle(for event: UIControlEvents) {
         if let currentThrottle = self.throttles[event.rawValue] {
             currentThrottle.throttle.cancel()
             remove(action: currentThrottle.action, forControlEvents: event)
         }
-        
+    }
+    
+    private func add<T>(throttle: Throttle<T>, action: Action, for event: UIControlEvents) {
+        removeThrottle(for: event)
         self.throttles[event.rawValue] = (throttle, action)
     }
+    
 
-    // MARK - throttles
+    // MARK - Throttles
     private var throttles: [UInt: ThrottleAndAction] {
         get {
             var throttles: [UInt: ThrottleAndAction]
