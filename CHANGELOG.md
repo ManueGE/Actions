@@ -1,5 +1,8 @@
 # Change Log
 
+### 2.1.1 (20 October 2016)
+- Support for Carthage.
+
 ### 2.1.0 (11 October 2016)
 - Add `throttle` extension for `UIControl`.
 
