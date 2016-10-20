@@ -1,4 +1,5 @@
 # Actions
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 **Actions** provides a set of extensions to add closures to `UIView` and `UIControl` instances. Also brings some methods to `UIBarButtonItem`, `UIGestureRecognizer`, `Timer` and `NotificationCenter`, that allow using them with a closure instead of a pair of target/action.
 
@@ -47,6 +48,7 @@ Keep reading to know how!
 
 ## Installation
 
+### Cocoapods
 Add the following to your `Podfile`:
 
 ````
@@ -62,6 +64,17 @@ import Actions
 ````
 
 If you don’t have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
+
+### Carthage
+Add the following to your `Cartfile`:
+
+```
+github “ManueGE/Actions”
+```
+
+Then run `$ carthage update`.
+
+If you need more info about Carthage you will find it [here](https://github.com/Carthage/Carthage]).
 
 ## Usage
 
