@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Actions
 
 extension NSNotification.Name {
     static var notificationName: NSNotification.Name {
