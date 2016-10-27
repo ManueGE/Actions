@@ -158,7 +158,8 @@ public extension UIControl {
     }
     
     /**
-     Disable all the actions for a given event to be launched as response of the received event
+     Disable all the actions for a given event to be launched as response of the received event. 
+     **NOTE**: Just the actions added using the `Actions` method will be removed!.
      - parameter events: The control events that you want to remove for the specified target object
      */
     public func removeActions(for events: UIControlEvents) {
