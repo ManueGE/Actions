@@ -79,7 +79,7 @@ extension UIControl {
     public func removeThrottle(for event: UIControlEvents) {
         if let currentThrottle = self.throttles[event.rawValue] {
             currentThrottle.throttle.cancel()
-            remove(action: currentThrottle.action, forControlEvents: event)
+            remove(currentThrottle.action, for: event)
         }
     }
     

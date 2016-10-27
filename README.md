@@ -159,6 +159,13 @@ button.add(event: .touchUpInside) { (sender, event) in
 }
 ````
 
+Actions added using this methods can be removed using the method:
+
+`func removeActions(for events: UIControlEvents)`
+
+> **Note**: Just the actions added using the `Actions` method will be removed!.
+
+
 #### Throttle
 Actions allows `UIControl` schedulling actions to be called after a specific time interval, and prevent it of being called more than once in that interval. In other words, if the action is scheduled again before the time interval expires, it cancels the previous call (if any) preventing the action to be called twice.
 
@@ -167,7 +174,7 @@ A typical example is a `UITextField` which will trigger a search every time the 
 You can use throttle this way: 
 
 ````swift
-textField.throttle(.editingChanged, interval: 0.5) { (textField: UITextField) in
+textField.throttle(.editingChanged, interval: 0.5) { [unowned self] (textField: UITextField) in
     self.performSearch(with: textField.text)
 }
 ````
@@ -252,7 +259,7 @@ let timer = Timer(fire: date, interval: 0.5, repeats: true) { (timer: Timer) in
 <a name="NotificationCenter"></a>
 ### NotificationCenter [☝️](#usage)
 
-Add an observer to a `NotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that woul live until they are stopped manually or notifications that are bind to the lifetime of an object:
+Add an observer to a `NotificationCenter` with a closure instead of a pair of observer/selector. You can do it in two ways, observations that would live until they are stopped manually or notifications that are bind to the lifetime of an object:
 
 ````swift
 let center = NotificationCenter.default
@@ -264,11 +271,16 @@ let action = center.observe(notificationName) {
 
 // Stop observing the notification
 center.stopObserving(action: action)
+````
 
+````swift
 // This observation will live until the observer is deallocated
 center.add(observer: self, name: notificationName) { [unowned self] in
     print("observe notification from \(self)")
 }
+
+// It can be stopped manually by doing:
+center.stopObserver(self) // name and object are optional paramteres for this method
 ````
 
 These methods has some additional, optional arguments `object`: the object whose notifications the observer wants to receive.
