@@ -24,9 +24,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var action: Action?
-    var notificationAction: Action!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         redView.addAction(action: emptyAction)
@@ -50,7 +47,7 @@ class ViewController: UIViewController {
             print("Text changed to: \(textField.text)")
         }
         
-        action = segmentedControl.add(event: .valueChanged, action: didPressSegment)
+        segmentedControl.add(event: .valueChanged, action: didPressSegment)
         
         button.add(event: .touchUpInside) {
             print("button tapped")
@@ -65,7 +62,7 @@ class ViewController: UIViewController {
         }
         
         let center = NotificationCenter.default
-        notificationAction = center.observe(.notificationName) {
+        center.add(observer: self, name: .notificationName) {
             print("Notification received")
         }
         
@@ -95,8 +92,8 @@ class ViewController: UIViewController {
     
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
-        segmentedControl.remove(action: action!, forControlEvents: .valueChanged)
-        NotificationCenter.default.stopObserving(action: notificationAction)
+        segmentedControl.removeAllActions(for: .valueChanged)
+        NotificationCenter.default.stopObserver(self)
     }
     
     func eventAction(sender: UIButton, event: UIEvent?) {

@@ -142,8 +142,33 @@ public extension UIControl {
      - parameter action: The action to disable
      - parameter events: The control events that you want to remove for the specified target object
      */
+    @available(*, deprecated, message: "Use remove(_:for:) instead")
     public func remove(action: Action, forControlEvents events: UIControlEvents) {
+        remove(action, for: events)
+    }
+    
+    /**
+     Disable the given action to be launched as response of the received event
+     - parameter action: The action to disable
+     - parameter events: The control events that you want to remove for the specified target object
+     */
+    public func remove(_ action: Action, for events: UIControlEvents) {
         removeTarget(action, action: action.selector, for: events)
         releaseAction(action, self)
+    }
+    
+    /**
+     Disable all the actions for a given event to be launched as response of the received event
+     - parameter events: The control events that you want to remove for the specified target object
+     */
+    public func removeAllActions(for events: UIControlEvents) {
+        for (_, value) in actions {
+            guard let action = value as? ControlAction,
+                (action.controlEvent.rawValue & events.rawValue) != 0 else {
+                    continue
+            }
+            
+            remove(action, for: events)
+        }
     }
 }
