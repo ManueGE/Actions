@@ -161,7 +161,7 @@ public extension UIControl {
      Disable all the actions for a given event to be launched as response of the received event
      - parameter events: The control events that you want to remove for the specified target object
      */
-    public func removeAllActions(for events: UIControlEvents) {
+    public func removeActions(for events: UIControlEvents) {
         for (_, value) in actions {
             guard let action = value as? ControlAction,
                 (action.controlEvent.rawValue & events.rawValue) != 0 else {

@@ -92,7 +92,7 @@ class ViewController: UIViewController {
     
     func didPressSegment(segmented: UISegmentedControl) {
         print("Segmented did change \(segmented.selectedSegmentIndex)")
-        segmentedControl.removeAllActions(for: .valueChanged)
+        segmentedControl.removeActions(for: .valueChanged)
         NotificationCenter.default.stopObserver(self)
     }
     

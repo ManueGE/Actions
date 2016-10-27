@@ -1,5 +1,21 @@
 # Change Log
 
+### 2.2.0 (27 October 2016)
+- New method to stop observing notifications in `NotificationServer`: 
+
+`stopObserver(_ observer: NSObject, name: NSNotification.Name? = nil, object: AnyObject? = nil)` 
+
+This allows you stop observing a notification without storing the `Action` returned when an observation starts.
+
+- New method to remove actions for a given gesture recognizer in `UIControl`: 
+
+`removeActions(for events: UIControlEvents)` 
+
+This allows you cancel an action without storing the `Action` returned when it is added.
+
+- Deprecated `UIControl` `remove(action:, forControlEvents)` in favor of `remove(_:for:)`.
+
+
 ### 2.1.1 (20 October 2016)
 - Support for Carthage.
 
