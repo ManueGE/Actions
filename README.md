@@ -167,7 +167,7 @@ A typical example is a `UITextField` which will trigger a search every time the 
 You can use throttle this way: 
 
 ````swift
-textField.throttle(.editingChanged, interval: 0.5) { (textField: UITextField) in
+textField.throttle(.editingChanged, interval: 0.5) { [unowned self] (textField: UITextField) in
     self.performSearch(with: textField.text)
 }
 ````

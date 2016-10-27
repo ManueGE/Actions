@@ -8,9 +8,30 @@
 
 import UIKit
 
+private protocol ControlAction: Action {
+    var controlEvent: UIControlEvents { get }
+}
+
+private class ControlVoidAction: VoidAction, ControlAction {
+    fileprivate let controlEvent: UIControlEvents
+    init(event: UIControlEvents, action: @escaping () -> Void) {
+        controlEvent = event
+        super.init(action: action)
+    }
+}
+
+private class ControlParametizedAction<T: UIControl>: ParametizedAction<T>, ControlAction {
+    fileprivate let controlEvent: UIControlEvents
+    init(event: UIControlEvents, action: @escaping (T) -> Void) {
+        controlEvent = event
+        super.init(action: action)
+    }
+}
+
 // Action to manage the two parameters selector allowed in controls
-private class EventAction<T: UIControl>: Action {
+private class EventAction<T: UIControl>: ControlAction {
     
+    fileprivate let controlEvent: UIControlEvents
     @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
@@ -20,8 +41,9 @@ private class EventAction<T: UIControl>: Action {
         action(parameter as! T, event)
     }
     
-    init(action: @escaping (T, UIEvent?) -> Void) {
+    init(event: UIControlEvents, action: @escaping (T, UIEvent?) -> Void) {
         self.action = action
+        controlEvent = event
     }
 }
 
@@ -39,7 +61,7 @@ public extension UIControl {
      */
     @discardableResult
     public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T, UIEvent?) -> Void) -> Action {
-        let action = EventAction(action: action)
+        let action = EventAction(event: event, action: action)
         add(event: event, action: action)
         return action
     }
@@ -52,7 +74,7 @@ public extension UIControl {
      */
     @discardableResult
     public func add<T: UIControl>(event: UIControlEvents, action: @escaping (T) -> Void) -> Action {
-        let action = ParametizedAction(action: action)
+        let action = ControlParametizedAction(event: event, action: action)
         add(event: event, action: action)
         return action
     }
@@ -65,7 +87,7 @@ public extension UIControl {
      */
     @discardableResult
     public func add(event: UIControlEvents, action: @escaping () -> Void) -> Action {
-        let action = VoidAction(action: action)
+        let action = ControlVoidAction(event: event, action: action)
         add(event: event, action: action)
         return action
     }
@@ -120,8 +142,33 @@ public extension UIControl {
      - parameter action: The action to disable
      - parameter events: The control events that you want to remove for the specified target object
      */
+    @available(*, deprecated, message: "Use remove(_:for:) instead")
     public func remove(action: Action, forControlEvents events: UIControlEvents) {
+        remove(action, for: events)
+    }
+    
+    /**
+     Disable the given action to be launched as response of the received event
+     - parameter action: The action to disable
+     - parameter events: The control events that you want to remove for the specified target object
+     */
+    public func remove(_ action: Action, for events: UIControlEvents) {
         removeTarget(action, action: action.selector, for: events)
         releaseAction(action, self)
+    }
+    
+    /**
+     Disable all the actions for a given event to be launched as response of the received event
+     - parameter events: The control events that you want to remove for the specified target object
+     */
+    public func removeActions(for events: UIControlEvents) {
+        for (_, value) in actions {
+            guard let action = value as? ControlAction,
+                (action.controlEvent.rawValue & events.rawValue) != 0 else {
+                    continue
+            }
+            
+            remove(action, for: events)
+        }
     }
 }
