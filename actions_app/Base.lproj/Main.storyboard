@@ -397,5 +397,51 @@
             </objects>
             <point key="canvasLocation" x="3417" y="374"/>
         </scene>
+        <!--Control View Controller-->
+        <scene sceneID="i39-Qz-lMi">
+            <objects>
+                <viewController storyboardIdentifier="UIControlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uQ0-o4-PO7" customClass="UIControlViewController" customModule="actions_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="crX-SQ-jib"/>
+                        <viewControllerLayoutGuide type="bottom" id="XLF-nH-dXF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R4L-GL-7Jc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bgK-T6-XkM">
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tT-Bw-EPm"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAl-oQ-isW">
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Textfield with 1 second throttle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUS-k8-CoN">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aUS-k8-CoN" firstAttribute="leading" secondItem="bgK-T6-XkM" secondAttribute="leading" id="YC5-Fk-5t6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bgK-T6-XkM" firstAttribute="centerY" secondItem="R4L-GL-7Jc" secondAttribute="centerY" id="CgE-ln-Ryb"/>
+                            <constraint firstItem="bgK-T6-XkM" firstAttribute="centerX" secondItem="R4L-GL-7Jc" secondAttribute="centerX" id="J09-t8-vnr"/>
+                            <constraint firstItem="bgK-T6-XkM" firstAttribute="leading" secondItem="R4L-GL-7Jc" secondAttribute="leading" constant="24" id="KKq-GV-Yff"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="AAl-oQ-isW" id="NLx-J2-lgv"/>
+                        <outlet property="switchButton" destination="3tT-Bw-EPm" id="xim-ir-Qd7"/>
+                        <outlet property="textField" destination="aUS-k8-CoN" id="9IS-EH-K2s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sbm-Na-Eea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4186" y="379"/>
+        </scene>
     </scenes>
 </document>
