@@ -306,5 +306,39 @@
             </objects>
             <point key="canvasLocation" x="1928" y="374"/>
         </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="oUq-A1-zXw">
+            <objects>
+                <viewController storyboardIdentifier="TimerViewController" id="Snu-hj-m5Q" customClass="TimerViewController" customModule="actions_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TMO-Yp-EyG"/>
+                        <viewControllerLayoutGuide type="bottom" id="sat-8R-E3I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YAc-r8-08n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vi3-d5-Ccv">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrk-y4-Cfi">
+                                        <state key="normal" title="Launch a 5 seconds timer"/>
+                                        <connections>
+                                            <action selector="didPressTimer:" destination="Snu-hj-m5Q" eventType="touchUpInside" id="RtS-o2-ILs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vi3-d5-Ccv" firstAttribute="centerX" secondItem="YAc-r8-08n" secondAttribute="centerX" id="mxY-NL-RJP"/>
+                            <constraint firstItem="vi3-d5-Ccv" firstAttribute="centerY" secondItem="YAc-r8-08n" secondAttribute="centerY" id="x2l-dw-Qtv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDk-Hd-gjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2626" y="377"/>
+        </scene>
     </scenes>
 </document>
