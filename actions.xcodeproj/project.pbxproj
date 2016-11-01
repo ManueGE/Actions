@@ -28,6 +28,7 @@
 		328C89D71DC8A94D005AD08D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89D61DC8A94D005AD08D /* BaseViewController.swift */; };
 		328C89DB1DC8A98F005AD08D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89DA1DC8A98F005AD08D /* HomeViewController.swift */; };
 		328C89DD1DC8AC24005AD08D /* UIViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89DC1DC8AC24005AD08D /* UIViewViewController.swift */; };
+		328C89DF1DC8B065005AD08D /* UIBarbuttonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89DE1DC8B065005AD08D /* UIBarbuttonItemViewController.swift */; };
 		32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CB47B81D318074000EB7CD /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		328C89D61DC8A94D005AD08D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		328C89DA1DC8A98F005AD08D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		328C89DC1DC8AC24005AD08D /* UIViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewViewController.swift; sourceTree = "<group>"; };
+		328C89DE1DC8B065005AD08D /* UIBarbuttonItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarbuttonItemViewController.swift; sourceTree = "<group>"; };
 		32CB47B81D318074000EB7CD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				328C89DA1DC8A98F005AD08D /* HomeViewController.swift */,
 				328C89D61DC8A94D005AD08D /* BaseViewController.swift */,
 				328C89DC1DC8AC24005AD08D /* UIViewViewController.swift */,
+				328C89DE1DC8B065005AD08D /* UIBarbuttonItemViewController.swift */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				328C89D71DC8A94D005AD08D /* BaseViewController.swift in Sources */,
 				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
 				328C89DD1DC8AC24005AD08D /* UIViewViewController.swift in Sources */,
+				328C89DF1DC8B065005AD08D /* UIBarbuttonItemViewController.swift in Sources */,
 				32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 				328C89D51DC8A7A2005AD08D /* Data.swift in Sources */,
