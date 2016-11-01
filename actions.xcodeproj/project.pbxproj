@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32281F031DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32281F021DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
 		325202401CFEDFC400CB20CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023F1CFEDFC400CB20CF /* ViewController.swift */; };
 		325202431CFEDFC400CB20CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202411CFEDFC400CB20CF /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		32281F021DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerViewController.swift; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252023D1CFEDFC400CB20CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252023F1CFEDFC400CB20CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				328C89E01DC8B1ED005AD08D /* TimerViewController.swift */,
 				328C89E21DC8B333005AD08D /* NotificationCenterViewController.swift */,
 				328C89E41DC8BB34005AD08D /* UIControlViewController.swift */,
+				32281F021DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 				328C89D51DC8A7A2005AD08D /* Data.swift in Sources */,
 				328C89E31DC8B333005AD08D /* NotificationCenterViewController.swift in Sources */,
+				32281F031DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift in Sources */,
 				328C89DB1DC8A98F005AD08D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
