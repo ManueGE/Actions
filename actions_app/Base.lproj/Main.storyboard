@@ -340,5 +340,62 @@
             </objects>
             <point key="canvasLocation" x="2626" y="377"/>
         </scene>
+        <!--Notification Center View Controller-->
+        <scene sceneID="aI4-bE-ezJ">
+            <objects>
+                <viewController storyboardIdentifier="NotificationCenterViewController" id="mhy-l5-xxI" customClass="NotificationCenterViewController" customModule="actions_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4K-HW-rKg"/>
+                        <viewControllerLayoutGuide type="bottom" id="UN2-Ve-J1E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="05u-8n-ggt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ve9-Ol-OfI">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noe-Mk-h5Y">
+                                        <state key="normal" title="Start observing"/>
+                                        <connections>
+                                            <action selector="didPressStartStop:" destination="mhy-l5-xxI" eventType="touchUpInside" id="dNN-ZW-ceS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHN-RJ-RzZ">
+                                        <state key="normal" title="post notification 1"/>
+                                        <connections>
+                                            <action selector="didPressPostNotification1:" destination="mhy-l5-xxI" eventType="touchUpInside" id="3fn-6C-rYC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FS-9E-EhV">
+                                        <state key="normal" title="post notification 2"/>
+                                        <connections>
+                                            <action selector="didPressPostNotification2:" destination="mhy-l5-xxI" eventType="touchUpInside" id="Itz-RM-AUB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification 1 is observed depending on the button status. Notification 2 is always observed. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="507-dH-IOI">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="507-dH-IOI" firstAttribute="centerX" secondItem="Ve9-Ol-OfI" secondAttribute="centerX" id="6qK-rm-lqI"/>
+                            <constraint firstItem="507-dH-IOI" firstAttribute="leading" secondItem="05u-8n-ggt" secondAttribute="leading" constant="24" id="PCg-gE-hBb"/>
+                            <constraint firstItem="Ve9-Ol-OfI" firstAttribute="centerY" secondItem="05u-8n-ggt" secondAttribute="centerY" id="bAd-MG-03V"/>
+                            <constraint firstItem="Ve9-Ol-OfI" firstAttribute="centerX" secondItem="05u-8n-ggt" secondAttribute="centerX" id="upy-ZV-ZRS"/>
+                            <constraint firstItem="Ve9-Ol-OfI" firstAttribute="top" secondItem="507-dH-IOI" secondAttribute="bottom" constant="16" id="xRr-lm-q9d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startStopButton" destination="noe-Mk-h5Y" id="1Rb-Ri-wuo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0bY-p1-el3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3417" y="374"/>
+        </scene>
     </scenes>
 </document>
