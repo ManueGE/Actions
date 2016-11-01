@@ -10,6 +10,17 @@ import UIKit
 
 class BaseViewController: UIViewController {
     deinit {
-        print(self)
+        print("Deinit \(self)")
+    }
+    
+    func showAlert(message: String) {
+        let alertView = UIAlertController(title: "Actions",
+                                          message: message,
+                                          preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Ok",
+                                          style: .cancel,
+                                          handler: nil))
+        
+        present(alertView, animated: true, completion: nil)
     }
 }

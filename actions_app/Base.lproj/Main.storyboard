@@ -177,5 +177,105 @@
             </objects>
             <point key="canvasLocation" x="389.60000000000002" y="378.26086956521743"/>
         </scene>
+        <!--View View Controller-->
+        <scene sceneID="pjx-Ds-EgK">
+            <objects>
+                <viewController storyboardIdentifier="UIViewViewController" automaticallyAdjustsScrollViewInsets="NO" id="X65-1m-xhO" customClass="UIViewViewController" customModule="actions_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fla-IO-1xg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZdR-LS-joO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d37-Kh-s2b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kl4-dY-eYj">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NiB-Ov-8Pb">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uP-2f-s5d">
+                                                <string key="text">
+    Tap this view</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrs-6K-RK5">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="kJa-lY-ucv"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgA-sc-Xzr">
+                                                <string key="text">
+    Tap twice</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8h-W5-bjt">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="bKa-St-V7b"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQR-5Q-gJ7">
+                                                <string key="text">
+    Tap with two fingers</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wV-LF-Smm">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="PzG-XA-Hwa"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg2-c4-zVj">
+                                                <string key="text">
+    Swipe left or right</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9R-ED-qFa">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="op4-fa-kbO"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NiB-Ov-8Pb" firstAttribute="top" secondItem="Kl4-dY-eYj" secondAttribute="top" id="DTr-Mw-j8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="NiB-Ov-8Pb" secondAttribute="trailing" id="HNK-St-ZAQ"/>
+                                    <constraint firstItem="NiB-Ov-8Pb" firstAttribute="leading" secondItem="Kl4-dY-eYj" secondAttribute="leading" id="eh4-yE-fvW"/>
+                                    <constraint firstAttribute="bottom" secondItem="NiB-Ov-8Pb" secondAttribute="bottom" id="fJn-UF-yYl"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kl4-dY-eYj" firstAttribute="top" secondItem="fla-IO-1xg" secondAttribute="bottom" id="J7Q-c1-qK0"/>
+                            <constraint firstItem="ZdR-LS-joO" firstAttribute="top" secondItem="Kl4-dY-eYj" secondAttribute="bottom" id="JjI-vd-3y3"/>
+                            <constraint firstItem="NiB-Ov-8Pb" firstAttribute="width" secondItem="d37-Kh-s2b" secondAttribute="width" id="hLX-Ps-SiP"/>
+                            <constraint firstAttribute="trailing" secondItem="Kl4-dY-eYj" secondAttribute="trailing" id="kOz-UD-aRQ"/>
+                            <constraint firstItem="Kl4-dY-eYj" firstAttribute="leading" secondItem="d37-Kh-s2b" secondAttribute="leading" id="u1d-iG-pqZ"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="swipeView" destination="U9R-ED-qFa" id="L8B-AF-N4q"/>
+                        <outlet property="tapTwiceView" destination="Q8h-W5-bjt" id="nGU-mw-Y1S"/>
+                        <outlet property="tapTwoFingersView" destination="6wV-LF-Smm" id="1uR-fp-L19"/>
+                        <outlet property="tapView" destination="lrs-6K-RK5" id="xhX-VB-ieC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="13m-F8-Abe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="379"/>
+        </scene>
     </scenes>
 </document>
