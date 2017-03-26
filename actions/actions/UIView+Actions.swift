@@ -16,8 +16,8 @@ private class CustomParametizedAction<T: NSObject>: Action {
     @objc let key = ProcessInfo.processInfo.globallyUniqueString
     @objc let selector: Selector = #selector(perform)
     
-    let action: ((T) -> Void)!
-    var parameter: T!
+    let action: ((T) -> Void)
+    weak var parameter: T?
     
     init(parameter: T?, action: @escaping (T) -> Void) {
         self.action = action
@@ -25,6 +25,7 @@ private class CustomParametizedAction<T: NSObject>: Action {
     }
     
     @objc func perform() {
+        guard let parameter = parameter else { return }
         action(parameter)
     }
 }
