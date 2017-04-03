@@ -1,5 +1,8 @@
 # Change Log
 
+### 2.2.1 (3 April 2017)
+- Avoid retainc cycle in parametized actions. ([PR #5](https://github.com/ManueGE/Actions/pull/5)) 
+
 ### 2.2.0 (27 October 2016)
 - New method to stop observing notifications in `NotificationServer`: 
 
