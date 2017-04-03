@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		32281F031DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32281F021DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift */; };
 		3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023D1CFEDFC400CB20CF /* AppDelegate.swift */; };
-		325202401CFEDFC400CB20CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252023F1CFEDFC400CB20CF /* ViewController.swift */; };
 		325202431CFEDFC400CB20CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202411CFEDFC400CB20CF /* Main.storyboard */; };
 		325202451CFEDFC400CB20CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 325202441CFEDFC400CB20CF /* Assets.xcassets */; };
 		325202481CFEDFC400CB20CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */; };
@@ -33,7 +32,6 @@
 		328C89E11DC8B1ED005AD08D /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89E01DC8B1ED005AD08D /* TimerViewController.swift */; };
 		328C89E31DC8B333005AD08D /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89E21DC8B333005AD08D /* NotificationCenterViewController.swift */; };
 		328C89E51DC8BB34005AD08D /* UIControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C89E41DC8BB34005AD08D /* UIControlViewController.swift */; };
-		32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CB47B81D318074000EB7CD /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +62,6 @@
 		32281F021DC8FEAC004BF074 /* UIGestureRecognizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerViewController.swift; sourceTree = "<group>"; };
 		3252023A1CFEDFC400CB20CF /* actions_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actions_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252023D1CFEDFC400CB20CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3252023F1CFEDFC400CB20CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		325202421CFEDFC400CB20CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		325202441CFEDFC400CB20CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		325202471CFEDFC400CB20CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 		328C89E01DC8B1ED005AD08D /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		328C89E21DC8B333005AD08D /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
 		328C89E41DC8BB34005AD08D /* UIControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlViewController.swift; sourceTree = "<group>"; };
-		32CB47B81D318074000EB7CD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +131,6 @@
 				3252023D1CFEDFC400CB20CF /* AppDelegate.swift */,
 				328C89D21DC8A783005AD08D /* data */,
 				328C89D31DC8A783005AD08D /* scenes */,
-				3252023F1CFEDFC400CB20CF /* ViewController.swift */,
-				32CB47B81D318074000EB7CD /* SecondViewController.swift */,
 				325202411CFEDFC400CB20CF /* Main.storyboard */,
 				325202441CFEDFC400CB20CF /* Assets.xcassets */,
 				325202461CFEDFC400CB20CF /* LaunchScreen.storyboard */,
@@ -252,7 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = manuege;
 				TargetAttributes = {
 					325202391CFEDFC400CB20CF = {
@@ -313,10 +307,8 @@
 				328C89D71DC8A94D005AD08D /* BaseViewController.swift in Sources */,
 				328C89E51DC8BB34005AD08D /* UIControlViewController.swift in Sources */,
 				328C89E11DC8B1ED005AD08D /* TimerViewController.swift in Sources */,
-				325202401CFEDFC400CB20CF /* ViewController.swift in Sources */,
 				328C89DD1DC8AC24005AD08D /* UIViewViewController.swift in Sources */,
 				328C89DF1DC8B065005AD08D /* UIBarbuttonItemViewController.swift in Sources */,
-				32CB47B91D318074000EB7CD /* SecondViewController.swift in Sources */,
 				3252023E1CFEDFC400CB20CF /* AppDelegate.swift in Sources */,
 				328C89D51DC8A7A2005AD08D /* Data.swift in Sources */,
 				328C89E31DC8B333005AD08D /* NotificationCenterViewController.swift in Sources */,
@@ -385,8 +377,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -431,8 +425,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -492,7 +488,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
