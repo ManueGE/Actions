@@ -23,7 +23,7 @@ class NotificationCenterViewController: BaseViewController {
             
             if observing {
                 NotificationCenter.default.add(observer: self, name: .notification1) { [unowned self] in
-                    self.showAlert(message: "Notification 1 catched")
+                    self.showAlert(message: "Notification 1 caught")
                 }
             }
             else {
@@ -47,7 +47,7 @@ class NotificationCenterViewController: BaseViewController {
         observing = false
         
         NotificationCenter.default.add(observer: self, name: .notification2) { [unowned self] in
-            self.showAlert(message: "Notification 2 catched")
+            self.showAlert(message: "Notification 2 caught")
         }
     }
 
