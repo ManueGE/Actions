@@ -39,13 +39,13 @@ public enum Gesture {
     case tap(Int)
     
     /// A swipe gesture with a single finger and the given direction
-    case swipe(UISwipeGestureRecognizerDirection)
+    case swipe(UISwipeGestureRecognizer.Direction)
     
     /// A tap gesture with the given number of touches and fingers
     case multiTap(taps: Int, fingers: Int)
     
     /// A swipe gesture with the given direction and number of fingers
-    case multiSwipe(direction: UISwipeGestureRecognizerDirection, fingers: Int)
+    case multiSwipe(direction: UISwipeGestureRecognizer.Direction, fingers: Int)
     
     fileprivate func recognizer(action: Action) -> UIGestureRecognizer {
         
