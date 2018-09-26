@@ -1,5 +1,8 @@
 # Change Log
 
+### 3.0.0 (3 April 2017)
+- Swift 4.2 & Xcode 10
+
 ### 2.2.1 (3 April 2017)
 - Avoid retainc cycle in parametized actions. ([PR #5](https://github.com/ManueGE/Actions/pull/5)) 
 
