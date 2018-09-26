@@ -25,7 +25,7 @@ extension UIControl {
     /// - parameter event:    The event which triggers the action
     /// - parameter interval: The time interval to wait before performing the action
     /// - parameter handler:  The action which will be executed when the time itnerval expires.
-    public func throttle<T: UIControl>(_ event: UIControlEvents, interval: TimeInterval, handler: @escaping (T, UIEvent?) -> Void) {
+    public func throttle<T: UIControl>(_ event: UIControl.Event, interval: TimeInterval, handler: @escaping (T, UIEvent?) -> Void) {
         
         let throttle = Throttle(interval: interval) { (sender, event) in
             handler(sender, event)
@@ -46,7 +46,7 @@ extension UIControl {
     /// - parameter event:    The event which triggers the action
     /// - parameter interval: The time interval to wait before performing the action
     /// - parameter handler:  The action which will be executed when the time itnerval expires.
-    public func throttle<T: UIControl>(_ event: UIControlEvents, interval: TimeInterval, handler: @escaping (T) -> Void) {
+    public func throttle<T: UIControl>(_ event: UIControl.Event, interval: TimeInterval, handler: @escaping (T) -> Void) {
         
         let throttle = Throttle(interval: interval, action: handler)
         let action = add(event: event) { (control: T) in
@@ -64,7 +64,7 @@ extension UIControl {
     /// - parameter event:    The event which triggers the action
     /// - parameter interval: The time interval to wait before performing the action
     /// - parameter handler:  The action which will be executed when the time itnerval expires.
-    public func throttle(_ event: UIControlEvents, interval: TimeInterval, handler: @escaping () -> Void) {
+    public func throttle(_ event: UIControl.Event, interval: TimeInterval, handler: @escaping () -> Void) {
         let throttle = Throttle(interval: interval, action: handler)
         let action = add(event: event) { 
             throttle.schedule(with: ())
@@ -76,14 +76,14 @@ extension UIControl {
     /// Remove the current Throttle (if any) for the given control event
     ///
     /// - parameter event: The event whose Throttle will be removed
-    public func removeThrottle(for event: UIControlEvents) {
+    public func removeThrottle(for event: UIControl.Event) {
         if let currentThrottle = self.throttles[event.rawValue] {
             currentThrottle.throttle.cancel()
             remove(currentThrottle.action, for: event)
         }
     }
     
-    private func add<T>(throttle: Throttle<T>, action: Action, for event: UIControlEvents) {
+    private func add<T>(throttle: Throttle<T>, action: Action, for event: UIControl.Event) {
         removeThrottle(for: event)
         self.throttles[event.rawValue] = (throttle, action)
     }
