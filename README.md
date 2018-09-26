@@ -92,9 +92,9 @@ If you need more info about Carthage you will find it [here](https://github.com/
 You can make your `UIViews` to respond to simple touches. The allowed gestures are members of the enum `Gestures` and their values are: 
 
 - `tap`: One finger tap, accept one `Int` parameter that indicate the number of required touches. 
-- `swipe`: One finger swipe, accept one `UISwipeGestureRecognizerDirection` parameter that indicate the direction of the swip. 
+- `swipe`: One finger swipe, accept one `UISwipeGestureRecognizer.Direction` parameter that indicate the direction of the swip. 
 - `multiTap`: Tap with any number of fingers, accept two `Int` parameter that indicate the number of required fingers and touches. 
-- `multiSwipe`: Swipe with any number of fingers; accept one `UISwipeGestureRecognizerDirection` parameter that indicate the direction of the swip and an `Int` parameter that indicate the number of required fingers and touches.
+- `multiSwipe`: Swipe with any number of fingers; accept one `UISwipeGestureRecognizer.Direction` parameter that indicate the direction of the swip and an `Int` parameter that indicate the number of required fingers and touches.
 
 To add one of this gestures to a `UIView` you can do: 
 
@@ -137,8 +137,8 @@ You can add three types of closures:
 
 You can add actions:
 
-- To a single `UIControlEvent`, using the method `add(event: UIControlEvent, action: () -> Void)`
-- To multple control events at the same time: `add(events: [UIControlEvent], action: ()) -> Void)`
+- To a single `UIControl.Event`, using the method `add(event: UIControl.Event, action: () -> Void)`
+- To multple control events at the same time: `add(events: [UIControl.Event], action: ()) -> Void)`
 
 Here there are some examples:
 
@@ -161,7 +161,7 @@ button.add(event: .touchUpInside) { (sender, event) in
 
 Actions added using this methods can be removed using the method:
 
-`func removeActions(for events: UIControlEvents)`
+`func removeActions(for events: UIControl.Event)`
 
 > **Note**: Just the actions added using the `Actions` method will be removed!.
 
