@@ -1,6 +1,6 @@
 # Change Log
 
-### 3.0.0 (3 April 2017)
+### 3.0.0 (25 September 2018)
 - Swift 4.2 & Xcode 10
 
 ### 2.2.1 (3 April 2017)
@@ -9,7 +9,7 @@
 ### 2.2.0 (27 October 2016)
 - New method to stop observing notifications in `NotificationServer`: 
 
-`stopObserver(_ observer: NSObject, name: NSNotification.Name? = nil, object: AnyObject? = nil)` 
+`stopObserver(_ obse3 April 2017rver: NSObject, name: NSNotification.Name? = nil, object: AnyObject? = nil)` 
 
 This allows you stop observing a notification without storing the `Action` returned when an observation starts.
 
